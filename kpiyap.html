@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>КПиЯП — 15 + 15 заданий</title>
+<style>
+  :root { --bg:#000; --card:#111113; --border:#262629; --text:#e5e5ea; --muted:#8e8e93;
+    --accent:#ff9f0a; --accent-bg:#3a2a10; --font-size:14px; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { margin:0; padding:4px 6px 24px; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;
+    font-size:var(--font-size); line-height:1.36; word-wrap:break-word; }
+  .controls { display:flex; gap:4px; margin-bottom:6px; position:sticky; top:0;
+    background:rgba(0,0,0,.94); padding:5px 0; z-index:100; border-bottom:1px solid var(--border); }
+  .search-input { flex:1; min-width:0; background:#1c1c1e; border:1px solid #333; color:#fff;
+    border-radius:8px; padding:5px 7px; font-size:13px; }
+  .btn { background:#1c1c1e; color:var(--accent); border:1px solid #333; border-radius:8px;
+    padding:5px 7px; font-size:12px; font-weight:700; cursor:pointer; text-decoration:none;
+    display:inline-flex; align-items:center; justify-content:center; }
+  .btn:active { background:#2c2c2e; }
+  .btn.home { color:#fff; }
+  h1 { font-size:16px; margin:4px 2px 8px; color:var(--accent); }
+  h2 { font-size:13px; margin:10px 2px 6px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  .grid { display:grid; grid-template-columns:repeat(6,1fr); gap:4px; margin-bottom:10px; }
+  .grid-btn { background:var(--card); color:var(--accent); border:1px solid var(--border);
+    border-radius:7px; padding:7px 0; text-align:center; font-weight:700; font-size:13px;
+    text-decoration:none; display:block; }
+  .grid-btn:active { background:var(--accent-bg); }
+  .q-card { background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:8px 9px; margin-bottom:8px; scroll-margin-top:44px; }
+  .q-header { display:flex; justify-content:space-between; align-items:center; gap:6px; margin-bottom:5px; }
+  .q-num { background:var(--accent-bg); color:var(--accent); font-weight:800; font-size:12px;
+    padding:2px 7px; border-radius:6px; }
+  .top-link { color:var(--muted); font-size:11px; text-decoration:none; padding:2px 6px;
+    background:#1c1c1e; border-radius:5px; }
+  .q-ask { font-weight:700; color:#fff; margin:9px 0 5px; font-size:1.02em;
+    padding-left:7px; border-left:2px solid var(--accent); }
+  .q-ask:first-of-type { margin-top:2px; }
+  .q-card p { margin:0 0 6px; color:#d1d1d6; }
+  .q-card ul { margin:0 0 6px; padding-left:16px; color:#d1d1d6; }
+  .q-card li { margin-bottom:3px; }
+  code { font-family:ui-monospace,Menlo,monospace; font-size:.9em; color:#ffd60a; }
+  pre { background:#0b0b0d; border:1px solid var(--border); border-radius:6px; padding:6px;
+    margin:0 0 6px; overflow-x:auto; font:11px/1.35 ui-monospace,Menlo,monospace;
+    color:#d1d1d6; white-space:pre; -webkit-overflow-scrolling:touch; }
+  pre code { color:inherit; font-size:inherit; }
+  .q-img { width:100%; border-radius:6px; background:#fff; display:block; margin:0 0 6px; }
+  .tbl { overflow-x:auto; margin:0 0 6px; }
+  table { border-collapse:collapse; font-size:.92em; color:#d1d1d6; }
+  th, td { border:1px solid #333; padding:3px 5px; text-align:left; vertical-align:top; }
+  th { color:#fff; background:#1c1c1e; }
+  .intro { background:var(--card); border:1px dashed var(--border); border-radius:10px; padding:8px 9px; margin-bottom:8px; }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<div id="top"></div>
+<div class="controls">
+  <a href="index.html" class="btn home">⌂</a>
+  <input type="search" id="search" class="search-input" placeholder="Поиск по заданиям..." oninput="filterQuestions()">
+  <button class="btn" onclick="changeFont(-1)">A-</button>
+  <button class="btn" onclick="changeFont(1)">A+</button>
+  <a href="#top" class="btn">▲</a>
+</div>
+<h1>КПиЯП (C#) · 15 + 15</h1>
+<h2>Теория</h2><div class="grid"><a href="#t1" class="grid-btn">1</a><a href="#t2" class="grid-btn">2</a><a href="#t3" class="grid-btn">3</a><a href="#t4" class="grid-btn">4</a><a href="#t5" class="grid-btn">5</a><a href="#t6" class="grid-btn">6</a><a href="#t7" class="grid-btn">7</a><a href="#t8" class="grid-btn">8</a><a href="#t9" class="grid-btn">9</a><a href="#t10" class="grid-btn">10</a><a href="#t11" class="grid-btn">11</a><a href="#t12" class="grid-btn">12</a><a href="#t13" class="grid-btn">13</a><a href="#t14" class="grid-btn">14</a><a href="#t15" class="grid-btn">15</a></div><h2>Практика</h2><div class="grid"><a href="#p1" class="grid-btn">1</a><a href="#p2" class="grid-btn">2</a><a href="#p3" class="grid-btn">3</a><a href="#p4" class="grid-btn">4</a><a href="#p5" class="grid-btn">5</a><a href="#p6" class="grid-btn">6</a><a href="#p7" class="grid-btn">7</a><a href="#p8" class="grid-btn">8</a><a href="#p9" class="grid-btn">9</a><a href="#p10" class="grid-btn">10</a><a href="#p11" class="grid-btn">11</a><a href="#p12" class="grid-btn">12</a><a href="#p13" class="grid-btn">13</a><a href="#p14" class="grid-btn">14</a><a href="#p15" class="grid-btn">15</a></div>
+<div id="questionsList">
+<h2>Теория</h2>
+<div class="q-card" id="t1">
+  <div class="q-header"><span class="q-num">Теория 1</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «переменная». Опишите разницу между объявлением и инициализацией переменной.</div>
+<p>Переменная – это именованная область памяти, предназначенная для хранения данных определенного типа, которые могут изменяться в процессе выполнения программы</p>
+<p>Объявление - создание переменной. Мы сообщаем компилятору имя переменной и тип данных, которые она будет хранить. В этот момент выделяется память, но данных в ней ещё нет.</p>
+<p>Инициализация - присвоение переменной первого (начального) значения. Только после этого переменную можно безопасно использовать в расчетах или выводить на экран.</p>
+<p>Переменные в C# правильно именовать при помощи стиля <code>lowerCamelCase</code>, при котором первое слово в названии всегда начинается с маленькой буквы, а каждое последующее слово начинается с заглавной. Употребление других символов кроме буквенных не допускается.</p>
+</div>
+<div class="q-card" id="t2">
+  <div class="q-header"><span class="q-num">Теория 2</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Опишите выполнение явных и неявных преобразований типов в языке C#. Перечислите пары безопасных неявных преобразований типов.</div>
+<p>Неявные преобразования - выполняются компилятором автоматически, если исходный тип гарантированно помещается в целевой тип без потери данных или точности</p>
+<p>Явные преобразования - выполняются прямым указанием в коде, когда исходный тип может не поместиться в целевой или при наследовании при переходе от базового типа к производному</p>
+<p>Безопасные (неявные) преобразования: <code>byte - short - int/char - long - float - double - decimal</code> (частично), <code>ushort - int</code>, <code>uint - long</code>, <code>ulong - float/double</code>, <code>любые типы - object</code></p>
+<p>Технически, <code>char</code> занимает тот же объем памяти что и <code>int</code>, и <code>char</code> может быть представлен в виде <code>int</code> и обратно, меняя представление с символа(<code>char</code>) на код этого символа в таблице Unicode(UTF-16).</p>
+</div>
+<div class="q-card" id="t3">
+  <div class="q-header"><span class="q-num">Теория 3</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Перечислите арифметические операции в языке C#. Поясните в чем заключается разница между унарными операциями постфиксного (а++) и префиксного инкремента (++а).</div>
+<p>Арифметические операции: <code>+</code> - сложение, <code>-</code> - вычитание, <code>*</code> - умножение, <code>/</code> - деление, <code>%</code> - остаток от деления</p>
+<p>Операторы присваивания: <code>=</code> - присваивание, <code>+=</code> - увеличение, <code>-=</code> - уменьшение, <code>*=</code> - домножение, <code>/=</code> - деление с присваиванием, <code>%=</code> - остаток от деления с присваиванием.</p>
+<p>Преинкремент (префиксный инкремент) (<code>++i</code>) - операция, выполняющая увеличение переменной на 1, и возвращающая результат увеличения</p>
+<p>Постинкремент (постфиксный инкремент) (<code>i++</code>) - операция, выполняющая увеличение переменной на 1, и возвращающая результат ДО увеличения</p>
+</div>
+<div class="q-card" id="t4">
+  <div class="q-header"><span class="q-num">Теория 4</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Перечислите группы операций в C# по числу операндов. Опишите принцип работы тернарного оператора.</div>
+<ul>
+<li>Унарные операции - это операции в которых участвует ОДИН операнд.</li>
+<li>Бинарные операции - это операции в которых участвуют ДВА операнда.</li>
+<li>Тернарные операции - это уже операции в которых участвует ТРИ переменные или значения. Такая операция в C# одна - тернарный оператор.</li>
+</ul>
+<p>Тернарный оператор - оператор, реализующий условную логику прямо в выражении, возвращающий один из возможных результатов в зависимости от истинности условия.</p>
+<p>Выглядит он так: <code>(условие) ? (выражение1): (выражение2)</code></p>
+</div>
+<div class="q-card" id="t5">
+  <div class="q-header"><span class="q-num">Теория 5</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «условный оператор». Опишите синтаксис оператора if и поясните принцип его работы.</div>
+<p>Условный оператор - конструкция, позволяющая программе выбрать блок кода для выполнения, в зависимости от истинности заданного условия.</p>
+<p>Ветвление при помощи if-else</p>
+<pre><code>if (условие)
+{
+    // код, выполняемый если условие true
+}
+else
+{
+    // код, выполняемый если условие false
+}</code></pre>
+</div>
+<div class="q-card" id="t6">
+  <div class="q-header"><span class="q-num">Теория 6</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «оператор множественного выбора». Опишите синтаксис оператора switch-case-default и поясните принцип его работы.</div>
+<p>Оператор множественного выбора - это управляющая конструкция, которая позволяет программе выполнять один из нескольких вариантов действий в зависимости от значения определённой переменной или выражения.</p>
+<p>В C# такой оператор один единственный - <code>switch</code>. Он бывает двух видов, но тут требуется конкретно <code>switch-case</code>.</p>
+<pre><code>switch (выражение) {
+    case значение:
+        // код, который выполнится если `выражение` = `значение`
+        break;
+    case значение2:
+        // код, который выполнится если `выражение` == `значение2`
+        break;
+    default:
+        // код, который выполнится если значение выражения не
+        // равно ни одному из значений написанных рядом с case
+        break;
+}</code></pre>
+</div>
+<div class="q-card" id="t7">
+  <div class="q-header"><span class="q-num">Теория 7</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «цикл с предусловием». Опишите синтаксис оператора while и поясните принцип его работы.</div>
+<p>Цикл с предусловием – управляющая конструкция, которая выполняет блок кода несколько раз, проверяя условие выполнения до начала каждой итерации. Если при первой проверке условие оказывается ложным, тело цикла не выполнится ни разу.</p>
+<pre><code>while (условие)
+{
+    // блок кода (тело цикла)
+}</code></pre>
+<ul>
+<li><code>while</code> — ключевое слово, запускающее цикл.</li>
+<li><code>условие</code> — логическое выражение (возвращающее <code>true</code> или <code>false</code>), которое обязательно заключается в круглые скобки.</li>
+<li><code>{ }</code> — фигурные скобки, ограничивающие тело цикла. Если в теле цикла всего одна инструкция, скобки можно опустить.</li>
+</ul>
+</div>
+<div class="q-card" id="t8">
+  <div class="q-header"><span class="q-num">Теория 8</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «цикл с постусловием». Опишите синтаксис оператора do-while и поясните принцип его работы.</div>
+<p>Цикл с постусловием – это циклическая управляющая конструкция, в которой тело цикла выполняется как минимум один раз, а проверка условия выхода происходит после его выполнения.</p>
+<p>Если условие оказывается истинным (или в некоторых языках - ложным, в зависимости от синтаксиса), цикл повторяется; если нет - выполнение цикла прекращается, и программа переходит к следующим инструкциям.</p>
+<pre><code>do {
+    // Тело цикла
+} while (условие);</code></pre>
+<ul>
+<li><code>do</code> — ключевое слово, обозначающее начало тела цикла.</li>
+<li><code>{... }</code> — фигурные скобки, внутри которых записываются исполняемые инструкции (тело цикла). Если инструкция всего одна, скобки можно опустить, но их использование считается хорошим тоном.</li>
+<li><code>while</code> — ключевое слово, после которого указывается условие продолжения цикла.</li>
+<li><code>(условие)</code> — логическое выражение, которое возвращает <code>true</code> (истина) или <code>false</code> (ложь).</li>
+</ul>
+</div>
+<div class="q-card" id="t9">
+  <div class="q-header"><span class="q-num">Теория 9</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «цикл со счетчиком». Опишите синтаксис оператора for и поясните принцип его работы.</div>
+<p>Цикл со счетчиком – это управляющая конструкция, которая повторяет блок команд заданное количество раз, используя специальную переменную (счетчик) для отслеживания текущей итерации.</p>
+<pre><code>for (инициализация; условие; изменение) {
+    // Тело цикла (выполняемые команды)
+}</code></pre>
+<ul>
+<li>Инициализация: Создание и/или установка начального значения переменной-счетчика (выполняется один раз в самом начале).</li>
+<li>Условие: Логическое выражение, которое проверяется перед каждой итерацией. Цикл продолжает работать, пока оно возвращает истину (true).</li>
+<li>Изменение: Обновление счетчика (обычно увеличение или уменьшение на единицу) после каждого выполнения тела цикла.</li>
+</ul>
+</div>
+<div class="q-card" id="t10">
+  <div class="q-header"><span class="q-num">Теория 10</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Перечислите обязательные компоненты, которые указываются внутри круглых скобок в заголовке цикла foreach в языке C#. Опишите синтаксис оператора foreach и поясните принцип его работы.</div>
+<p>В заголовке цикла <code>foreach</code> внутри круглых скобок указываются два обязательных компонента: тип и имя переменной цикла (итератора), а также перебираемая коллекция, разделенные ключевым словом in.</p>
+<pre><code>foreach ([тип] [имя переменной] in [коллекция])
+{
+    // Тело цикла
+}</code></pre>
+<ul>
+<li>Тип – тип данных элементов, находящихся в коллекции (можно использовать явный тип, например <code>int</code>, <code>string</code>, либо ключевое слово <code>var</code>, чтобы компилятор определил тип автоматически).</li>
+<li>Имя переменной — локальная переменная, в которую на каждой итерации цикла будет поочередно копироваться текущий элемент коллекции.</li>
+<li>Ключевое слово <code>in</code> — обязательный оператор, разделяющий объявление переменной и целевую коллекцию.</li>
+<li>Коллекция — выражение, возвращающее коллекцию, массив или любой объект, реализующий интерфейс <code>IEnumerable</code> (или имеющий подходящий метод <code>GetEnumerator()</code>).</li>
+</ul>
+</div>
+<div class="q-card" id="t11">
+  <div class="q-header"><span class="q-num">Теория 11</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Перечислите операторы циклов в С#. Охарактеризуйте применение операторов break и continue в циклах.</div>
+<p>В языке C# поддерживаются четыре основных типа операторов цикла:</p>
+<ul>
+<li><code>for</code> — цикл с заранее известным числом итераций (содержит инициализацию, условие продолжения и действие для изменения).</li>
+<li><code>while</code> — цикл с предусловием (проверяет условие перед каждой итерацией; если оно ложно сразу, тело цикла не выполнится ни разу).</li>
+<li><code>do-while</code> — цикл с постусловием (сначала выполняет тело цикла хотя бы один раз, а затем проверяет условие в конце).</li>
+<li><code>foreach</code> — цикл для перебора коллекций, массивов и объектов, реализующих интерфейс <code>IEnumerable</code> (предоставляет удобный доступ к каждому элементу по порядку).</li>
+</ul>
+<p>Оператор <code>break</code> - полностью прекращает выполнение ближайшего внешнего цикла (или конструкции <code>switch</code>) и передает управление коду, который идет сразу за ним</p>
+<p>Оператор <code>continue</code> - пропускает оставшуюся часть кода в теле текущей итерации и сразу переходит к следующему шагу цикла (вычислению условия или шага итератора)</p>
+</div>
+<div class="q-card" id="t12">
+  <div class="q-header"><span class="q-num">Теория 12</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «массив». Опишите способы объявления и инициализации одномерного массива.</div>
+<p>Массив - упорядоченная структура данных, которая хранит совокупность элементов одного типа под общим именем.</p>
+<pre><code>// Создание пустого массива с 5 элементами
+int[] numbers = new int[5];
+
+// Создание массива с заданными элементами
+int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+
+// Создание массива с заданными элементами сокращенно
+int[] numbers = { 1, 2, 3, 4, 5 };
+
+// Создание массива с заданными элементами с неявным типом
+var numbers = new[] { 1, 2, 3, 4, 5 };
+
+// Создание массива через выражение коллекции (collection expression)
+int[] numbers = [1, 2, 3, 4, 5];</code></pre>
+</div>
+<div class="q-card" id="t13">
+  <div class="q-header"><span class="q-num">Теория 13</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «индекс элемента массива». Опишите способ объявления и инициализации двумерного массива.</div>
+<p>Индекс элемента массива - порядковый номер или значение (чаще всего целое неотрицательное число), которое однозначно определяет местоположение конкретного элемента в общей последовательности массива и обеспечивает прямой доступ к нему.</p>
+<p>В C# двумерные массивы бывают двух типов: прямоугольные (размерность задается через запятую <code>[,]</code>) и ступенчатые (массивы массивов <code>[][]</code>).</p>
+<p>Скорее всего имеется в виду прямоугольный массив, поэтому опишем объявление и объявление с инициализацией:</p>
+<pre><code>// Прямоугольный двухмерный массив
+int[,] matrix = new int[3, 4];
+
+// Прямоугольный двухмерный массив с инициализацией
+int[,] matrix = new int[2, 3]
+{
+    { 1, 2, 3 }, // Строка 0
+    { 4, 5, 6 }  // Строка 1
+};</code></pre>
+</div>
+<div class="q-card" id="t14">
+  <div class="q-header"><span class="q-num">Теория 14</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Опишите назначение класса System.Array. Перечислите его основные методы и свойства и укажите их назначение.</div>
+<p><code>System.Array</code> - абстрактный класс, от которого наследуются все массивы, он определяет базовые методы поведения массивов.</p>
+<p>Основные свойства:</p>
+<ul>
+<li><code>Length</code> - возвращает общее количество элементов во всех размерностях массива.</li>
+<li><code>LongLength</code> - возвращает общее количество элементов в виде 64-битного целого числа (<code>long</code>), что необходимо для очень больших массивов.</li>
+<li><code>Rank</code> - возвращает размерность (количество измерений) массива (например, <code>1</code> для одномерного, <code>2</code> для двумерного).</li>
+</ul>
+<p>Основные методы:</p>
+<ul>
+<li><code>IndexOf</code> - ищет первое вхождение указанного элемента в одномерном массиве и возвращает его индекс (или <code>-1</code>, если элемент не найден).</li>
+<li><code>Find</code> / <code>FindLast</code> - возвращают первый или последний элемент, удовлетворяющий условию заданного предиката (лямбда-выражения типа <code>Func&lt;T, bool&gt;</code>).</li>
+<li><code>FindAll</code> - находит и возвращает все элементы, которые соответствуют условию.</li>
+<li><code>Exists</code> - проверяет, содержит ли массив хотя бы один элемент, соответствующий условию (возвращает <code>true</code> / <code>false</code>).</li>
+</ul>
+<p>Методы сортировки:</p>
+<ul>
+<li><code>Sort</code> - сортирует элементы одномерного массива по возрастанию.</li>
+<li><code>Reverse</code> - меняет порядок элементов в одномерном массиве на обратный.</li>
+</ul>
+<p>Модификация и копирование:</p>
+<ul>
+<li><code>Clear</code> - очищает массив, сбрасывая его элементы к значениям по умолчанию (<code>0</code> для чисел, <code>false</code> для <code>bool</code>, <code>null</code> для ссылочных типов). При этом размер массива не меняется.</li>
+<li><code>Copy()</code> - копирует диапазон элементов из одного массива в другой.</li>
+<li><code>Fill()</code> - заполняет все ячейки (или их часть) указанным значением.</li>
+</ul>
+</div>
+<div class="q-card" id="t15">
+  <div class="q-header"><span class="q-num">Теория 15</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">Дайте определение понятию «метод». Опишите разницу между функцией и методом.</div>
+<p>Метод - это именованный блок кода, который является членом класса, структуры или интерфейса и содержит последовательность инструкций для выполнения определенного действия</p>
+<p>Метод отличается от функции тем, что:</p>
+<p>Функция существует вне зависимости от классов и работает только с теми данными, которые переданы ей в качестве аргументов.</p>
+<p>Метод принадлежит какому-то классу и всегда имеет доступ к данным объекта этого класса, вызываться он может только через объект класса</p>
+<p>Технически в C# не существует глобальных функций и все функции так или иначе привязаны к какому-либо классу. Так что ИНОГДА можно сказать что функция является методом (однако эта функция должна быть статичной и использовать статичные поля класса, чтобы сичтаться СТАТИЧНЫМ методом).</p>
+</div>
+<h2>Практика</h2>
+<div class="intro"><p><b>Задание:</b> создайте класс, указанный в таблице (столбец 1).<br>Реализуйте в классе:</p>
+<ul><li>свойства с проверками</li><li>конструктор с параметрами</li></ul>
+<p>Реализуйте в классе или вне его методы обработки данных<br>В случае недопустимых значений программа должна выбрасывать исключения.<br>Продемонстрируйте работоспособность разработанного класса в Main.</p>
+<p>СТРУКТУРА ВО ВСЕХ ОТВЕТАХ ОДНА И ТА ЖЕ, ЗАДАНИЯ ОДНОТИПНЫЕ</p></div>
+<div class="q-card" id="p1">
+  <div class="q-header"><span class="q-num">Практика 1</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Картина</td></tr><tr><th>Свойства</th><td>Название (string), год создания (int), цена в бел.руб (double)</td></tr><tr><th>Проверки</th><td>Год в диапазоне от [0;2026], цена в диапазоне от [0;100000000]</td></tr><tr><th>Методы</th><td>- поиска картин стоимостью более 10000 руб.;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Painting
+{
+    public string Name { get; set; }
+
+    public int Year
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0 and &lt;= 2026
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public double Price
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0 and &lt;= 100_000_000
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Painting(string name, int year, double price)
+    {
+        Name = name;
+        Year = year;
+        Price = price;
+    }
+
+    public static Painting[] FindExpensive(Painting[] paintings)
+        =&gt; paintings.Where(p =&gt; p.Price &gt; 10_000).ToArray();
+
+    public string GetInfo() =&gt; $&quot;{Name}, {Year}, {Price}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var pt = new Painting(&quot;testName&quot;, 2021, 100000);
+
+        var paintings = new Painting[]
+        {
+            new(&quot;testName1&quot;, 2021, 15_000),
+            new(&quot;testName2&quot;, 2022, 30_000),
+            new(&quot;testName3&quot;, 2023, 1_000),
+        };
+
+        try
+        {
+            pt.Price = -1000;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            pt.Year = -10;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Painting info: {pt.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Painting.FindExpensive(paintings)
+                .Select(p =&gt; p.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p2">
+  <div class="q-header"><span class="q-num">Практика 2</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Спортивный инвентарь</td></tr><tr><th>Свойства</th><td>Название (string), вес (double), цена в бел.руб (double)</td></tr><tr><th>Проверки</th><td>Вес в диапазоне от [0.01;500.0], цена в диапазоне от [1;1000000]</td></tr><tr><th>Методы</th><td>- сортировки инвентаря по весу;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class SportsEquipment
+{
+    public string Name { get; set; }
+
+    public double Weight
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0.01 and &lt;= 500.0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public double Price
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 1 and &lt;= 1_000_000
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public SportsEquipment(string name, double weight, double price)
+    {
+        Name = name;
+        Weight = weight;
+        Price = price;
+    }
+
+    public static SportsEquipment[] SortByWeight(SportsEquipment[] items)
+        =&gt; items.OrderBy(i =&gt; i.Weight).ToArray();
+
+    public string GetInfo() =&gt; $&quot;{Name}, {Weight}, {Price}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var eq = new SportsEquipment(&quot;testName&quot;, 10.5, 50000);
+
+        var items = new SportsEquipment[]
+        {
+            new(&quot;testName1&quot;, 25.0, 15_000),
+            new(&quot;testName2&quot;, 5.5, 30_000),
+            new(&quot;testName3&quot;, 100.0, 1_000),
+        };
+
+        try
+        {
+            eq.Price = -1000;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            eq.Weight = -10;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Equipment info: {eq.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            SportsEquipment.SortByWeight(items)
+                .Select(i =&gt; i.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p3">
+  <div class="q-header"><span class="q-num">Практика 3</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Товар</td></tr><tr><th>Свойства</th><td>Название (string), вес (int), цена в бел.руб (double)</td></tr><tr><th>Проверки</th><td>Цена и вес не отрицательные</td></tr><tr><th>Методы</th><td>- поиска товаров, цена которых меньше 10 бел.руб;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Product
+{
+    public string Name { get; set; }
+
+    public int Weight
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public double Price
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Product(string name, int weight, double price)
+    {
+        Name = name;
+        Weight = weight;
+        Price = price;
+    }
+
+    public static Product[] FindCheap(Product[] products)
+        =&gt; products.Where(p =&gt; p.Price &lt; 10).ToArray();
+
+    public string GetInfo() =&gt; $&quot;{Name}, {Weight}, {Price}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var pt = new Product(&quot;testName&quot;, 5, 100.5);
+
+        var products = new Product[]
+        {
+            new(&quot;testName1&quot;, 2, 5.5),
+            new(&quot;testName2&quot;, 10, 30.0),
+            new(&quot;testName3&quot;, 1, 9.99),
+        };
+
+        try
+        {
+            pt.Price = -1000;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            pt.Weight = -10;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Product info: {pt.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Product.FindCheap(products)
+                .Select(p =&gt; p.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p4">
+  <div class="q-header"><span class="q-num">Практика 4</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Смартфон</td></tr><tr><th>Свойства</th><td>Производитель (string), операционная система (string), количество оперативной памяти (int)</td></tr><tr><th>Проверки</th><td>Количество оперативной памяти положительное</td></tr><tr><th>Методы</th><td>- сортировки смартфонов по количеству оперативной памяти с помощью условного оператора;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Smartphone
+{
+    public string Manufacturer { get; set; }
+
+    public string OS { get; set; }
+
+    public int Ram
+    {
+        get;
+        set =&gt; field =
+            value is &gt; 0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Smartphone(string manufacturer, string os, int ram)
+    {
+        Manufacturer = manufacturer;
+        OS = os;
+        Ram = ram;
+    }
+
+    public static Smartphone[] SortByRam(Smartphone[] phones)
+    {
+        var result = (Smartphone[])phones.Clone();
+        for (int i = 0; i &lt; result.Length - 1; i++)
+            for (int j = 0; j &lt; result.Length - i - 1; j++)
+                if (result[j].Ram &gt; result[j + 1].Ram)
+                    (result[j], result[j + 1]) = (result[j + 1], result[j]);
+        return result;
+    }
+
+    public string GetInfo() =&gt; $&quot;{Manufacturer}, {OS}, {Ram}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var ph = new Smartphone(&quot;testManufacturer&quot;, &quot;testOS&quot;, 8);
+
+        var phones = new Smartphone[]
+        {
+            new(&quot;testName1&quot;, &quot;Android&quot;, 12),
+            new(&quot;testName2&quot;, &quot;iOS&quot;, 6),
+            new(&quot;testName3&quot;, &quot;Android&quot;, 8),
+        };
+
+        try
+        {
+            ph.Ram = -4;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            ph.Ram = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Smartphone info: {ph.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Smartphone.SortByRam(phones)
+                .Select(p =&gt; p.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p5">
+  <div class="q-header"><span class="q-num">Практика 5</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Машина</td></tr><tr><th>Свойства</th><td>Марка (string), скорость (int)</td></tr><tr><th>Проверки</th><td>Скорость положительная</td></tr><tr><th>Методы</th><td>- поиска машин марки «BMW» с помощью условного оператора;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Car
+{
+    public string Brand { get; set; }
+
+    public int Speed
+    {
+        get;
+        set =&gt; field =
+            value is &gt; 0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Car(string brand, int speed)
+    {
+        Brand = brand;
+        Speed = speed;
+    }
+
+    public static Car[] FindBMW(Car[] cars)
+    {
+        var result = new List&lt;Car&gt;();
+        foreach (var car in cars)
+            if (car.Brand == &quot;BMW&quot;)
+                result.Add(car);
+        return result.ToArray();
+    }
+
+    public string GetInfo() =&gt; $&quot;{Brand}, {Speed}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var car = new Car(&quot;testBrand&quot;, 200);
+
+        var cars = new Car[]
+        {
+            new(&quot;BMW&quot;, 250),
+            new(&quot;Audi&quot;, 220),
+            new(&quot;BMW&quot;, 180),
+        };
+
+        try
+        {
+            car.Speed = -10;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        try
+        {
+            car.Speed = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Car info: {car.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Car.FindBMW(cars)
+                .Select(c =&gt; c.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p6">
+  <div class="q-header"><span class="q-num">Практика 6</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Велосипед</td></tr><tr><th>Свойства</th><td>Бренд (string), диаметр колес (int), скорость в км/ч (int)</td></tr><tr><th>Проверки</th><td>Диаметр в диапазоне от [12;30], скорость в диапазоне от [1;35]</td></tr><tr><th>Методы</th><td>- поиска велосипеда с максимальной скоростью;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Bicycle
+{
+    public string Brand { get; set; }
+
+    public int WheelDiameter
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 12 and &lt;= 30
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public int Speed
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 1 and &lt;= 35
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Bicycle(string brand, int wheelDiameter, int speed)
+    {
+        Brand = brand;
+        WheelDiameter = wheelDiameter;
+        Speed = speed;
+    }
+
+    public static Bicycle FindFastest(Bicycle[] bicycles)
+    {
+        var max = bicycles[0];
+        for (int i = 1; i &lt; bicycles.Length; i++)
+            if (bicycles[i].Speed &gt; max.Speed)
+                max = bicycles[i];
+        return max;
+    }
+
+    public string GetInfo() =&gt; $&quot;{Brand}, {WheelDiameter}, {Speed}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var bike = new Bicycle(&quot;testBrand&quot;, 26, 25);
+
+        var bicycles = new Bicycle[]
+        {
+            new(&quot;testName1&quot;, 28, 30),
+            new(&quot;testName2&quot;, 20, 15),
+            new(&quot;testName3&quot;, 24, 20),
+        };
+
+        try
+        {
+            bike.WheelDiameter = 5;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            bike.Speed = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Bicycle info: {bike.GetInfo()}&quot;);
+
+        Console.WriteLine($&quot;Fastest:
+{Bicycle.FindFastest(bicycles).GetInfo()}&quot;);
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p7">
+  <div class="q-header"><span class="q-num">Практика 7</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Преподаватель</td></tr><tr><th>Свойства</th><td>ФИО (string), учебный предмет (sting), количество часов в неделю (double)</td></tr><tr><th>Проверки</th><td>Количество часов в неделю [0;45]</td></tr><tr><th>Методы</th><td>- поиска преподавателя с минимальным количеством часов в неделю с помощью цикла;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Teacher
+{
+    public string FullName { get; set; }
+
+    public string Subject { get; set; }
+
+    public double HoursPerWeek
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0 and &lt;= 45
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Teacher(string fullName, string subject, double hoursPerWeek)
+    {
+        FullName = fullName;
+        Subject = subject;
+        HoursPerWeek = hoursPerWeek;
+    }
+
+    public static Teacher FindMinHours(Teacher[] teachers)
+    {
+        var min = teachers[0];
+        for (int i = 1; i &lt; teachers.Length; i++)
+            if (teachers[i].HoursPerWeek &lt; min.HoursPerWeek)
+                min = teachers[i];
+        return min;
+    }
+
+    public string GetInfo() =&gt; $&quot;{FullName}, {Subject}, {HoursPerWeek}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var t = new Teacher(&quot;testName&quot;, &quot;testSubject&quot;, 20.5);
+
+        var teachers = new Teacher[]
+        {
+            new(&quot;testName1&quot;, &quot;Math&quot;, 30.0),
+            new(&quot;testName2&quot;, &quot;Physics&quot;, 10.5),
+            new(&quot;testName3&quot;, &quot;History&quot;, 25.0),
+        };
+
+        try
+        {
+            t.HoursPerWeek = -5;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            t.HoursPerWeek = 50;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Teacher info: {t.GetInfo()}&quot;);
+
+        Console.WriteLine($&quot;Min hours:
+{Teacher.FindMinHours(teachers).GetInfo()}&quot;);
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p8">
+  <div class="q-header"><span class="q-num">Практика 8</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Отель</td></tr><tr><th>Свойства</th><td>Название (string), количество звезд (int), стоимость номера в бел.руб за ночь (double)</td></tr><tr><th>Проверки</th><td>Звезды в диапазоне от [1;5], стоимость в диапазоне от [10;10000]</td></tr><tr><th>Методы</th><td>- поиска отелей с максимальной стоимостью за ночь с помощью цикла;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Hotel
+{
+    public string Name { get; set; }
+
+    public int Stars
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 1 and &lt;= 5
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public double PricePerNight
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 10 and &lt;= 10_000
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Hotel(string name, int stars, double pricePerNight)
+    {
+        Name = name;
+        Stars = stars;
+        PricePerNight = pricePerNight;
+    }
+
+    public static Hotel FindMostExpensive(Hotel[] hotels)
+    {
+        var max = hotels[0];
+        for (int i = 1; i &lt; hotels.Length; i++)
+            if (hotels[i].PricePerNight &gt; max.PricePerNight)
+                max = hotels[i];
+        return max;
+    }
+
+    public string GetInfo() =&gt; $&quot;{Name}, {Stars}, {PricePerNight}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var h = new Hotel(&quot;testName&quot;, 4, 500.0);
+
+        var hotels = new Hotel[]
+        {
+            new(&quot;testName1&quot;, 5, 8000.0),
+            new(&quot;testName2&quot;, 3, 150.0),
+            new(&quot;testName3&quot;, 4, 1200.0),
+        };
+
+        try
+        {
+            h.Stars = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            h.PricePerNight = 5;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Hotel info: {h.GetInfo()}&quot;);
+
+        Console.WriteLine($&quot;Most expensive:
+{Hotel.FindMostExpensive(hotels).GetInfo()}&quot;);
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p9">
+  <div class="q-header"><span class="q-num">Практика 9</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Животное</td></tr><tr><th>Свойства</th><td>Кличка (string), возраст (int), вес в кг (double)</td></tr><tr><th>Проверки</th><td>Возраст в диапазоне от [0;150], вес в диапазоне от [0.1;20000.0]</td></tr><tr><th>Методы</th><td>- поиска животных старше 5 лет с помощью цикла;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Animal
+{
+    public string Name { get; set; }
+
+    public int Age
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0 and &lt;= 150
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public double Weight
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0.1 and &lt;= 20_000.0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Animal(string name, int age, double weight)
+    {
+        Name = name;
+        Age = age;
+        Weight = weight;
+    }
+
+    public static Animal[] FindOlderThan5(Animal[] animals)
+    {
+        var result = new List&lt;Animal&gt;();
+        for (int i = 0; i &lt; animals.Length; i++)
+            if (animals[i].Age &gt; 5)
+                result.Add(animals[i]);
+        return result.ToArray();
+    }
+
+    public string GetInfo() =&gt; $&quot;{Name}, {Age}, {Weight}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var a = new Animal(&quot;testName&quot;, 3, 15.5);
+
+        var animals = new Animal[]
+        {
+            new(&quot;testName1&quot;, 7, 25.0),
+            new(&quot;testName2&quot;, 2, 5.0),
+            new(&quot;testName3&quot;, 10, 40.0),
+        };
+
+        try
+        {
+            a.Age = -1;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            a.Weight = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Animal info: {a.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Animal.FindOlderThan5(animals)
+                .Select(a =&gt; a.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p10">
+  <div class="q-header"><span class="q-num">Практика 10</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Компьютерная игра</td></tr><tr><th>Свойства</th><td>Название (string), размер занимаемой памяти (double), возрастной рейтинг (int)</td></tr><tr><th>Проверки</th><td>Размер в диапазоне от [0.1;500.0], рейтинг в диапазоне от [0;21]</td></tr><tr><th>Методы</th><td>- сортировки игр по размеру занимаемой памяти с помощью цикла;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class ComputerGame
+{
+    public string Name { get; set; }
+
+    public double Size
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0.1 and &lt;= 500.0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public int AgeRating
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0 and &lt;= 21
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public ComputerGame(string name, double size, int ageRating)
+    {
+        Name = name;
+        Size = size;
+        AgeRating = ageRating;
+    }
+
+    public static ComputerGame[] SortBySize(ComputerGame[] games)
+    {
+        var result = (ComputerGame[])games.Clone();
+        for (int i = 0; i &lt; result.Length - 1; i++)
+            for (int j = 0; j &lt; result.Length - i - 1; j++)
+                if (result[j].Size &gt; result[j + 1].Size)
+                    (result[j], result[j + 1]) = (result[j + 1], result[j]);
+        return result;
+    }
+
+    public string GetInfo() =&gt; $&quot;{Name}, {Size}, {AgeRating}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var g = new ComputerGame(&quot;testName&quot;, 50.0, 16);
+
+        var games = new ComputerGame[]
+        {
+            new(&quot;testName1&quot;, 120.5, 18),
+            new(&quot;testName2&quot;, 15.0, 12),
+            new(&quot;testName3&quot;, 75.0, 16),
+        };
+
+        try
+        {
+            g.Size = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            g.AgeRating = 25;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Game info: {g.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            ComputerGame.SortBySize(games)
+                .Select(g =&gt; g.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p11">
+  <div class="q-header"><span class="q-num">Практика 11</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Человек</td></tr><tr><th>Свойства</th><td>Имя (string), возраст (int), раса (string)</td></tr><tr><th>Проверки</th><td>Возраст в диапазоне от [0;120]</td></tr><tr><th>Методы</th><td>- поиска человека максимального возраста с помощью цикла;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Person
+{
+    public string Name { get; set; }
+
+    public int Age
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0 and &lt;= 120
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public string Race { get; set; }
+
+    public Person(string name, int age, string race)
+    {
+        Name = name;
+        Age = age;
+        Race = race;
+    }
+
+    public static Person FindOldest(Person[] people)
+    {
+        var max = people[0];
+        for (int i = 1; i &lt; people.Length; i++)
+            if (people[i].Age &gt; max.Age)
+                max = people[i];
+        return max;
+    }
+
+    public string GetInfo() =&gt; $&quot;{Name}, {Age}, {Race}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var p = new Person(&quot;testName&quot;, 25, &quot;testRace&quot;);
+
+        var people = new Person[]
+        {
+            new(&quot;testName1&quot;, 30, &quot;testRace1&quot;),
+            new(&quot;testName2&quot;, 55, &quot;testRace2&quot;),
+            new(&quot;testName3&quot;, 18, &quot;testRace3&quot;),
+        };
+
+        try
+        {
+            p.Age = -1;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            p.Age = 150;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Person info: {p.GetInfo()}&quot;);
+
+        Console.WriteLine($&quot;Oldest: {Person.FindOldest(people).GetInfo()}&quot;);
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p12">
+  <div class="q-header"><span class="q-num">Практика 12</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Фильм</td></tr><tr><th>Свойства</th><td>Название (string), год выпуска (int), сборы (double)</td></tr><tr><th>Проверки</th><td>Год выпуска в диапазоне [1920;2027], сборы не отрицательные</td></tr><tr><th>Методы</th><td>- поиска фильмов, выпущенных после 2010 года с использованием массива объектов;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Film
+{
+    public string Name { get; set; }
+
+    public int ReleaseYear
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 1920 and &lt;= 2027
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public double Revenue
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Film(string name, int releaseYear, double revenue)
+    {
+        Name = name;
+        ReleaseYear = releaseYear;
+        Revenue = revenue;
+    }
+
+    public static Film[] FindAfter2010(Film[] films)
+    {
+        var result = new List&lt;Film&gt;();
+        for (int i = 0; i &lt; films.Length; i++)
+            if (films[i].ReleaseYear &gt; 2010)
+                result.Add(films[i]);
+        return result.ToArray();
+    }
+
+    public string GetInfo() =&gt; $&quot;{Name}, {ReleaseYear}, {Revenue}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var f = new Film(&quot;testName&quot;, 2000, 500000.0);
+
+        var films = new Film[]
+        {
+            new(&quot;testName1&quot;, 2015, 1_000_000),
+            new(&quot;testName2&quot;, 2005, 500_000),
+            new(&quot;testName3&quot;, 2020, 2_000_000),
+        };
+
+        try
+        {
+            f.ReleaseYear = 1900;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            f.Revenue = -100;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Film info: {f.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Film.FindAfter2010(films)
+                .Select(f =&gt; f.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p13">
+  <div class="q-header"><span class="q-num">Практика 13</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Фотоаппарат</td></tr><tr><th>Свойства</th><td>Модель (string), мегапиксели (double), зум (int)</td></tr><tr><th>Проверки</th><td>Мегапиксели в диапазоне от [1.0;200.0], зум в диапазоне от [1;100]</td></tr><tr><th>Методы</th><td>- сортировки фотоаппаратов по мегапикселям с помощью LINQ запроса;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Camera
+{
+    public string Model { get; set; }
+
+    public double Megapixels
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 1.0 and &lt;= 200.0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public int Zoom
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 1 and &lt;= 100
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Camera(string model, double megapixels, int zoom)
+    {
+        Model = model;
+        Megapixels = megapixels;
+        Zoom = zoom;
+    }
+
+    public static Camera[] SortByMegapixels(Camera[] cameras)
+        =&gt; cameras.OrderBy(c =&gt; c.Megapixels).ToArray();
+
+    public string GetInfo() =&gt; $&quot;{Model}, {Megapixels}, {Zoom}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var cam = new Camera(&quot;testModel&quot;, 24.0, 10);
+
+        var cameras = new Camera[]
+        {
+            new(&quot;testName1&quot;, 45.0, 5),
+            new(&quot;testName2&quot;, 12.0, 30),
+            new(&quot;testName3&quot;, 61.0, 8),
+        };
+
+        try
+        {
+            cam.Megapixels = 0.5;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            cam.Zoom = 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Camera info: {cam.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Camera.SortByMegapixels(cameras)
+                .Select(c =&gt; c.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p14">
+  <div class="q-header"><span class="q-num">Практика 14</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Фильм</td></tr><tr><th>Свойства</th><td>Название (string), год выпуска (int), сборы (double)</td></tr><tr><th>Проверки</th><td>Год выпуска в диапазоне [1920;2026], сборы не отрицательные</td></tr><tr><th>Методы</th><td>- сортировки фильмов по названию с помощью IComparable и Array.Sort;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Film : IComparable&lt;Film&gt;
+{
+    public string Name { get; set; }
+
+    public int ReleaseYear
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 1920 and &lt;= 2026
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public double Revenue
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public Film(string name, int releaseYear, double revenue)
+    {
+        Name = name;
+        ReleaseYear = releaseYear;
+        Revenue = revenue;
+    }
+
+    public int CompareTo(Film? other)
+    {
+        if (other is null) return 1;
+        return string.Compare(Name, other.Name, StringComparison.Ordinal);
+    }
+
+    public static Film[] SortByName(Film[] films)
+    {
+        var result = (Film[])films.Clone();
+        Array.Sort(result);
+        return result;
+    }
+
+    public string GetInfo() =&gt; $&quot;{Name}, {ReleaseYear}, {Revenue}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var f = new Film(&quot;testName&quot;, 2000, 500000.0);
+
+        var films = new Film[]
+        {
+            new(&quot;Charlie&quot;, 2015, 1_000_000),
+            new(&quot;Alpha&quot;, 2005, 500_000),
+            new(&quot;Bravo&quot;, 2020, 2_000_000),
+        };
+
+        try
+        {
+            f.ReleaseYear = 1900;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            f.Revenue = -100;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Film info: {f.GetInfo()}&quot;);
+
+        Console.WriteLine(string.Join(&quot;\n&quot;,
+            Film.SortByName(films)
+                .Select(f =&gt; f.GetInfo())));
+    }
+}</code></pre>
+</div>
+<div class="q-card" id="p15">
+  <div class="q-header"><span class="q-num">Практика 15</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="tbl"><table><tr><th>Название класса</th><td>Заказ</td></tr><tr><th>Свойства</th><td>Номер (long), стоимость в бел.руб (double), пункт доставки (string)</td></tr><tr><th>Проверки</th><td>Стоимость не отрицательная</td></tr><tr><th>Методы</th><td>- поиска товара с минимальной стоимостью;<br>- вывода информации об объекте.</td></tr></table></div>
+<pre><code>public class Order
+{
+    public long Number { get; set; }
+
+    public double Price
+    {
+        get;
+        set =&gt; field =
+            value is &gt;= 0
+                ? value
+                : throw new ArgumentException(null, nameof(value));
+    }
+
+    public string DeliveryPoint { get; set; }
+
+    public Order(long number, double price, string deliveryPoint)
+    {
+        Number = number;
+        Price = price;
+        DeliveryPoint = deliveryPoint;
+    }
+
+    public static Order FindCheapest(Order[] orders)
+    {
+        var min = orders[0];
+        for (int i = 1; i &lt; orders.Length; i++)
+            if (orders[i].Price &lt; min.Price)
+                min = orders[i];
+        return min;
+    }
+
+    public string GetInfo() =&gt; $&quot;{Number}, {Price}, {DeliveryPoint}&quot;;
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        var o = new Order(1001, 250.0, &quot;testPoint&quot;);
+
+        var orders = new Order[]
+        {
+            new(1002, 500.0, &quot;testPoint1&quot;),
+            new(1003, 50.0, &quot;testPoint2&quot;),
+            new(1004, 150.0, &quot;testPoint3&quot;),
+        };
+
+        try
+        {
+            o.Price = -100;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            o.Price = -1;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        Console.WriteLine($&quot;Order info: {o.GetInfo()}&quot;);
+
+        Console.WriteLine($&quot;Cheapest: {Order.FindCheapest(orders).GetInfo()}&quot;);
+    }
+}</code></pre>
+</div>
+</div>
+
+<script>
+  const root = document.documentElement;
+  let fs = parseInt(localStorage.getItem('fs') || '14');
+  root.style.setProperty('--font-size', fs + 'px');
+  function changeFont(d) { fs = Math.min(22, Math.max(10, fs + d)); localStorage.setItem('fs', fs);
+    root.style.setProperty('--font-size', fs + 'px'); }
+  function filterQuestions() {
+    const q = document.getElementById('search').value.trim().toLowerCase();
+    document.querySelectorAll('.q-card').forEach(c => {
+      c.classList.toggle('hidden', q && !c.textContent.toLowerCase().includes(q)); });
+    document.querySelectorAll('.grid, h2, .intro').forEach(g => g.classList.toggle('hidden', !!q));
+  }
+</script>
+
+</body>
+</html>

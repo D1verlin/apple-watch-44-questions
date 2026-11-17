@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ОАИП — 35 билетов</title>
+<style>
+  :root { --bg:#000; --card:#111113; --border:#262629; --text:#e5e5ea; --muted:#8e8e93;
+    --accent:#30d158; --accent-bg:#12301c; --font-size:14px; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { margin:0; padding:4px 6px 24px; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;
+    font-size:var(--font-size); line-height:1.36; word-wrap:break-word; }
+  .controls { display:flex; gap:4px; margin-bottom:6px; position:sticky; top:0;
+    background:rgba(0,0,0,.94); padding:5px 0; z-index:100; border-bottom:1px solid var(--border); }
+  .search-input { flex:1; min-width:0; background:#1c1c1e; border:1px solid #333; color:#fff;
+    border-radius:8px; padding:5px 7px; font-size:13px; }
+  .btn { background:#1c1c1e; color:var(--accent); border:1px solid #333; border-radius:8px;
+    padding:5px 7px; font-size:12px; font-weight:700; cursor:pointer; text-decoration:none;
+    display:inline-flex; align-items:center; justify-content:center; }
+  .btn:active { background:#2c2c2e; }
+  .btn.home { color:#fff; }
+  h1 { font-size:16px; margin:4px 2px 8px; color:var(--accent); }
+  h2 { font-size:13px; margin:10px 2px 6px; color:var(--muted); text-transform:uppercase; letter-spacing:.5px; }
+  .grid { display:grid; grid-template-columns:repeat(6,1fr); gap:4px; margin-bottom:10px; }
+  .grid-btn { background:var(--card); color:var(--accent); border:1px solid var(--border);
+    border-radius:7px; padding:7px 0; text-align:center; font-weight:700; font-size:13px;
+    text-decoration:none; display:block; }
+  .grid-btn:active { background:var(--accent-bg); }
+  .q-card { background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:8px 9px; margin-bottom:8px; scroll-margin-top:44px; }
+  .q-header { display:flex; justify-content:space-between; align-items:center; gap:6px; margin-bottom:5px; }
+  .q-num { background:var(--accent-bg); color:var(--accent); font-weight:800; font-size:12px;
+    padding:2px 7px; border-radius:6px; }
+  .top-link { color:var(--muted); font-size:11px; text-decoration:none; padding:2px 6px;
+    background:#1c1c1e; border-radius:5px; }
+  .q-ask { font-weight:700; color:#fff; margin:9px 0 5px; font-size:1.02em;
+    padding-left:7px; border-left:2px solid var(--accent); }
+  .q-ask:first-of-type { margin-top:2px; }
+  .q-card p { margin:0 0 6px; color:#d1d1d6; }
+  .q-card ul { margin:0 0 6px; padding-left:16px; color:#d1d1d6; }
+  .q-card li { margin-bottom:3px; }
+  code { font-family:ui-monospace,Menlo,monospace; font-size:.9em; color:#ffd60a; }
+  pre { background:#0b0b0d; border:1px solid var(--border); border-radius:6px; padding:6px;
+    margin:0 0 6px; overflow-x:auto; font:11px/1.35 ui-monospace,Menlo,monospace;
+    color:#d1d1d6; white-space:pre; -webkit-overflow-scrolling:touch; }
+  pre code { color:inherit; font-size:inherit; }
+  .q-img { width:100%; border-radius:6px; background:#fff; display:block; margin:0 0 6px; }
+  .tbl { overflow-x:auto; margin:0 0 6px; }
+  table { border-collapse:collapse; font-size:.92em; color:#d1d1d6; }
+  th, td { border:1px solid #333; padding:3px 5px; text-align:left; vertical-align:top; }
+  th { color:#fff; background:#1c1c1e; }
+  .intro { background:var(--card); border:1px dashed var(--border); border-radius:10px; padding:8px 9px; margin-bottom:8px; }
+  .hidden { display:none !important; }
+</style>
+</head>
+<body>
+<div id="top"></div>
+<div class="controls">
+  <a href="index.html" class="btn home">⌂</a>
+  <input type="search" id="search" class="search-input" placeholder="Поиск по 35 билетам..." oninput="filterQuestions()">
+  <button class="btn" onclick="changeFont(-1)">A-</button>
+  <button class="btn" onclick="changeFont(1)">A+</button>
+  <a href="#top" class="btn">▲</a>
+</div>
+<h1>ОАИП · 35 билетов</h1>
+<div class="grid"><a href="#q1" class="grid-btn">1</a><a href="#q2" class="grid-btn">2</a><a href="#q3" class="grid-btn">3</a><a href="#q4" class="grid-btn">4</a><a href="#q5" class="grid-btn">5</a><a href="#q6" class="grid-btn">6</a><a href="#q7" class="grid-btn">7</a><a href="#q8" class="grid-btn">8</a><a href="#q9" class="grid-btn">9</a><a href="#q10" class="grid-btn">10</a><a href="#q11" class="grid-btn">11</a><a href="#q12" class="grid-btn">12</a><a href="#q13" class="grid-btn">13</a><a href="#q14" class="grid-btn">14</a><a href="#q15" class="grid-btn">15</a><a href="#q16" class="grid-btn">16</a><a href="#q17" class="grid-btn">17</a><a href="#q18" class="grid-btn">18</a><a href="#q19" class="grid-btn">19</a><a href="#q20" class="grid-btn">20</a><a href="#q21" class="grid-btn">21</a><a href="#q22" class="grid-btn">22</a><a href="#q23" class="grid-btn">23</a><a href="#q24" class="grid-btn">24</a><a href="#q25" class="grid-btn">25</a><a href="#q26" class="grid-btn">26</a><a href="#q27" class="grid-btn">27</a><a href="#q28" class="grid-btn">28</a><a href="#q29" class="grid-btn">29</a><a href="#q30" class="grid-btn">30</a><a href="#q31" class="grid-btn">31</a><a href="#q32" class="grid-btn">32</a><a href="#q33" class="grid-btn">33</a><a href="#q34" class="grid-btn">34</a><a href="#q35" class="grid-btn">35</a></div>
+<div id="questionsList">
+<div class="q-card" id="q1">
+  <div class="q-header"><span class="q-num">Билет 1</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «алгоритм».</div>
+<p>Ответ. Алгоритм это точная последовательность действий, которая за конечное число шагов приводит от исходных данных к нужному результату. Пример: рецепт блюда, инструкция к прибору. Программа это алгоритм, записанный на языке программирования.</p>
+<div class="q-ask">2. Перечислите основные свойства алгоритма.</div>
+<p>1) Дискретность: алгоритм делится на отдельные шаги.</p>
+<p>2) Определённость: каждый шаг записан однозначно, без «посолить по вкусу».</p>
+<p>3) Понятность: используются только команды, которые исполнитель умеет выполнять.</p>
+<p>4) Конечность: работа заканчивается за конечное число шагов.</p>
+<p>5) Массовость: подходит для всех однотипных задач, а не для одного набора данных.</p>
+<p>6) Правильность: для допустимых данных результат верный.</p>
+<div class="q-ask">3. Охарактеризуйте три основных вида алгоритмов.</div>
+<p>1) Линейный. Все шаги идут по порядку, каждый один раз: ввод, вычисление, вывод.</p>
+<p>2) Разветвляющийся. Путь выбирается по условию: верно одно, не верно другое (<code>if...else</code>, <code>switch</code>).</p>
+<p>3) Циклический. Группа действий повторяется несколько раз (<code>for</code>, <code>while</code>, <code>do...while</code>).</p>
+<div class="q-ask">4. Приведите описание алгоритма всеми описанными способами для задачи вычисления площади и периметра прямоугольника по заданным сторонам.</div>
+<p>1) Словесный (задача: по сторонам a и b найти S и P): ввести a и b; умножить a на b, получится S; сложить a и b, сумму умножить на 2, получится P; вывести S и P.</p>
+<p>2) Формульный: S = a * b, P = 2 * (a + b).</p>
+<p>3) Блок-схема (овал: начало и конец, параллелограмм: ввод и вывод, прямоугольник: вычисление):</p>
+<a href="img/image1.png" target="_blank"><img class="q-img" src="img/image1.png" alt="Рисунок" loading="lazy"></a>
+<p>4) Псевдокод:</p>
+<pre><code>начало;  ввод a, b;  S := a * b;  P := 2 * (a + b);  вывод S, P;  конец</code></pre>
+<p>5) Программа на C++:</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    double a, b;
+    cout &lt;&lt; &quot;Введите a и b: &quot;;
+    cin &gt;&gt; a &gt;&gt; b;
+    cout &lt;&lt; &quot;S = &quot; &lt;&lt; a * b &lt;&lt; endl;
+    cout &lt;&lt; &quot;P = &quot; &lt;&lt; 2 * (a + b) &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите a и b: 5 3
+S = 15
+P = 16</code></pre>
+</div>
+<div class="q-card" id="q2">
+  <div class="q-header"><span class="q-num">Билет 2</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «указатель».</div>
+<p>Ответ. Указатель это переменная, в которой хранится не значение, а адрес другой переменной (ячейки памяти). Это «бумажка с номером квартиры», а не сам жилец.</p>
+<div class="q-ask">2. Опишите синтаксис объявления указателя.</div>
+<pre><code>тип *имя;        // int *p;   double *d;</code></pre>
+<p>1) <code>&amp;x</code> адрес переменной x (взятие адреса).</p>
+<p>2) <code>*p</code> значение по адресу, который хранится в p (разыменование).</p>
+<p>3) <code>nullptr</code> пустой указатель, который никуда не указывает. Тип указателя должен совпадать с типом переменной.</p>
+<div class="q-ask">3. Охарактеризуйте принцип инициализации указателя и данные, которые указатель хранит.</div>
+<p>Ответ. Указатель инициализируют адресом переменной: <code>int a = 10; int *p = &amp;a;</code> или значением <code>nullptr</code>. Если не инициализировать, в нём будет случайный адрес («дикий» указатель), это опасно. Указатель хранит только адрес; само значение получают так: <code>*p</code>. Через указатель значение можно менять: <code>*p = 25;</code> изменит переменную a. Размер указателя не зависит от типа (4 или 8 байт).</p>
+<div class="q-ask">4. Приведите пример работы с указателями для задачи обмена значениями двух переменных.</div>
+<p>Ответ. В функцию передаём адреса, поэтому она меняет сами переменные, а не их копии.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+void swapValues(int *x, int *y)
+{
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
+}
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int a, b;
+    cout &lt;&lt; &quot;Введите a и b: &quot;;
+    cin &gt;&gt; a &gt;&gt; b;
+    swapValues(&amp;a, &amp;b);
+    cout &lt;&lt; &quot;После обмена: a = &quot; &lt;&lt; a &lt;&lt; &quot;, b = &quot; &lt;&lt; b &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите a и b: 15 42
+После обмена: a = 42, b = 15</code></pre>
+</div>
+<div class="q-card" id="q3">
+  <div class="q-header"><span class="q-num">Билет 3</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «переменная».</div>
+<p>Ответ. Переменная это именованная область памяти, в которой хранится значение определённого типа. Значение можно менять во время работы программы. У переменной есть имя, тип, значение и адрес.</p>
+<div class="q-ask">2. Опишите синтаксис объявления переменной в С++.</div>
+<pre><code>тип имя;                 // int age;
+тип имя = значение;      // double price = 99.5;
+тип a, b, c;             // int x, y, z;</code></pre>
+<p>Правила имени: латинские буквы, цифры и <code>_</code>; не начинается с цифры; не совпадает с ключевым словом (<code>int</code>, <code>for</code>); регистр важен (<code>a</code> и <code>A</code> разные переменные).</p>
+<div class="q-ask">3. Охарактеризуйте особенности инициализации переменной и данные, которые переменная хранит.</div>
+<p>Инициализация это присвоение начального значения при объявлении: <code>int a = 5;</code> (можно <code>int a(5);</code> и <code>int a{5};</code>). Без неё локальная переменная содержит «мусор». Тип определяет, какие данные хранит переменная:</p>
+<p><code>int</code> целые (4 байта), <code>float</code> и <code>double</code> вещественные (4 и 8 байт), <code>char</code> один символ (1 байт), <code>bool</code> true или false, <code>string</code> строка текста.</p>
+<div class="q-ask">4. Приведите пример объявления и инициализации переменных разных типов и продемонстрируйте их использование в простой программе.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;string&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    string name;
+    int age;
+    double price = 12.5;
+    int count = 4;
+    char grade = &#x27;A&#x27;;
+    bool isStudent = true;
+    cout &lt;&lt; &quot;Введите имя и возраст: &quot;;
+    cin &gt;&gt; name &gt;&gt; age;
+    cout &lt;&lt; name &lt;&lt; &quot;, &quot; &lt;&lt; age &lt;&lt; &quot; лет, оценка &quot; &lt;&lt; grade &lt;&lt; endl;
+    cout &lt;&lt; &quot;Покупка: &quot; &lt;&lt; price * count &lt;&lt; &quot;, студент: &quot; &lt;&lt; isStudent &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите имя и возраст: Анна 19
+Анна, 19 лет, оценка A
+Покупка: 50, студент: 1</code></pre>
+</div>
+<div class="q-card" id="q4">
+  <div class="q-header"><span class="q-num">Билет 4</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Назовите оператор, который используется для пропуска одной итерации цикла.</div>
+<p>Ответ. Оператор continue («продолжить») пропускает остаток текущей итерации цикла и сразу переходит к следующей. Сам цикл не завершается.</p>
+<div class="q-ask">2. Опишите его синтаксис и особенности работы внутри циклов for, while и do-while.</div>
+<pre><code>continue;     // обычно стоит внутри if</code></pre>
+<p>1) В <code>for</code> управление идёт на <code>i++</code>, затем проверяется условие.</p>
+<p>2) В <code>while</code> и <code>do...while</code> управление идёт на проверку условия. Счётчик надо менять до <code>continue</code>, иначе цикл станет бесконечным.</p>
+<div class="q-ask">3. Охарактеризуйте, чем отличается пропуск одной итерации от полного прерывания цикла.</div>
+<p>Ответ. <code>continue</code> пропускает только текущую итерацию, цикл продолжает работать. <code>break</code> полностью завершает цикл. Для чисел 1..5 при i == 3: с <code>continue</code> выведется 1 2 4 5, с <code>break</code> выведется 1 2.</p>
+<div class="q-ask">4. Приведите пример программы, которая с помощью оператора пропуска одной итерации выводит на экран все числа от 1 до 20, кроме чисел, кратных 3.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    for (int i = 1; i &lt;= 20; i++)
+    {
+        if (i % 3 == 0)
+            continue;          // кратные 3 пропускаем
+        cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+    }
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>1 2 4 5 7 8 10 11 13 14 16 17 19 20</code></pre>
+</div>
+<div class="q-card" id="q5">
+  <div class="q-header"><span class="q-num">Билет 5</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «разветвляющийся алгоритм».</div>
+<p>Ответ. Разветвляющийся алгоритм это алгоритм, в котором путь выполнения выбирается по результату проверки условия. Пример: «если идёт дождь, взять зонт, иначе надеть очки». В C++ это <code>if</code>, <code>if...else</code>, <code>switch</code>.</p>
+<div class="q-ask">2. Опишите синтаксис и принцип работы условного оператора if…else.</div>
+<pre><code>if (условие)
+    { ... }          // если условие истинно
+else if (условие2)
+    { ... }          // иначе если истинно второе
+else
+    { ... }          // иначе</code></pre>
+<p>Выполняется только одна ветка. <code>else</code> необязателен. В условиях: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&amp;&amp;</code> (и), <code>||</code> (или), <code>!</code> (не). Частая ошибка: <code>=</code> вместо <code>==</code>.</p>
+<div class="q-ask">3. Охарактеризуйте конструкцию switch-case.</div>
+<pre><code>switch (выражение)
+{
+    case 1: ...; break;
+    case 2: ...; break;
+    default: ...;        // если ни один case не подошёл
+}</code></pre>
+<p>Выражение должно быть целого типа или <code>char</code>. <code>break</code> обязателен, без него выполнение «проваливается» в следующий <code>case</code>. <code>switch</code> проверяет только равенство, диапазоны проверяют через <code>if</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая по введённому номеру дня недели (от 1 до 7) выводит его название.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int day;
+    cout &lt;&lt; &quot;Номер дня недели (1-7): &quot;;
+    cin &gt;&gt; day;
+    switch (day)
+    {
+        case 1: cout &lt;&lt; &quot;Понедельник&quot;; break;
+        case 2: cout &lt;&lt; &quot;Вторник&quot;; break;
+        case 3: cout &lt;&lt; &quot;Среда&quot;; break;
+        case 4: cout &lt;&lt; &quot;Четверг&quot;; break;
+        case 5: cout &lt;&lt; &quot;Пятница&quot;; break;
+        case 6: cout &lt;&lt; &quot;Суббота&quot;; break;
+        case 7: cout &lt;&lt; &quot;Воскресенье&quot;; break;
+        default: cout &lt;&lt; &quot;Ошибка: нужно число от 1 до 7&quot;;
+    }
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Номер дня недели (1-7): 5
+Пятница</code></pre>
+</div>
+<div class="q-card" id="q6">
+  <div class="q-header"><span class="q-num">Билет 6</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «цикл».</div>
+<p>Ответ. Цикл это повторение группы операторов (тела цикла). Одно повторение называется итерацией. В C++ три цикла:</p>
+<p>1) <code>for</code> (со счётчиком): когда число повторений известно.</p>
+<p>2) <code>while</code> (с предусловием): условие проверяется до тела, тело может не выполниться ни разу.</p>
+<p>3) <code>do...while</code> (с постусловием): условие проверяется после тела, тело выполнится минимум один раз.</p>
+<div class="q-ask">2. Опишите принципы работы операторов break и continue.</div>
+<p>1) <code>break</code> немедленно завершает цикл и передаёт управление на команду после цикла (нашли нужное, дальше не ищем).</p>
+<p>2) <code>continue</code> пропускает остаток текущей итерации и переходит к следующей.</p>
+<p>Во вложенных циклах они действуют только на тот цикл, в котором записаны.</p>
+<div class="q-ask">3. Охарактеризуйте цикл do…while.</div>
+<pre><code>do
+{
+    // тело цикла
+} while (условие);        // после while точка с запятой!</code></pre>
+<p>Сначала выполняется тело, потом проверяется условие. Если оно истинно, цикл повторяется. Тело выполнится хотя бы один раз, даже при ложном условии. Удобен для проверки ввода: «вводи, пока не введёшь верно».</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая с помощью цикла do…while находит сумму цифр введённого пользователем натурального числа.</div>
+<p>Ответ. Последняя цифра это <code>n % 10</code>, отбросить её можно делением <code>n / 10</code>. Повторяем, пока число не станет равно 0.</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    long long n;
+    do
+    {
+        cout &lt;&lt; &quot;Введите натуральное число: &quot;;
+        cin &gt;&gt; n;
+    } while (n &lt;= 0);
+    int sum = 0;
+    do
+    {
+        sum += n % 10;
+        n /= 10;
+    } while (n &gt; 0);
+    cout &lt;&lt; &quot;Сумма цифр: &quot; &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите натуральное число: 0
+Введите натуральное число: 4075
+Сумма цифр: 16</code></pre>
+</div>
+<div class="q-card" id="q7">
+  <div class="q-header"><span class="q-num">Билет 7</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «структура».</div>
+<p>Ответ. Структура это пользовательский тип данных, который объединяет несколько переменных (полей) разных типов под одним именем. Например, человек: имя (строка), возраст (число).</p>
+<div class="q-ask">2. Опишите синтаксис объявления структуры.</div>
+<pre><code>struct Human
+{
+    string name;     // поля структуры
+    int age;
+};                   // точка с запятой обязательна</code></pre>
+<p>Объявление только описывает тип, память выделяется при создании объекта: <code>Human h;</code>.</p>
+<div class="q-ask">3. Охарактеризуйте элементы структуры.</div>
+<p>Ответ. Элементы структуры это её поля. Доступ к ним через точку: <code>h.age = 20;</code>, через указатель через стрелку: <code>p-&gt;age</code>. Инициализация списком в порядке полей: <code>Human h = {&quot;Иван&quot;, &quot;Петров&quot;, 20};</code>. Структуры одного типа можно копировать целиком: <code>h2 = h;</code>.</p>
+<div class="q-ask">4. Продемонстрируйте применение метода пошаговой детализации разработки алгоритма при проектировании программы: сначала опишите алгоритм решения задачи укрупнённо (на уровне основных подзадач), затем детализируйте каждый шаг до уровня, достаточного для реализации на языке C++.</div>
+<p>Пошаговая детализация это разбиение задачи от общего к частному: сначала крупные шаги, затем каждый шаг уточняется до простых команд. Задача: найти наибольшее из 5 чисел.</p>
+<p>Уровень 1: 1) ввести числа; 2) найти наибольшее; 3) вывести его.</p>
+<p>Уровень 2: 1) для i от 0 до 4 ввести a[i]; 2) max = a[0], для i от 1 до 4: если a[i] &gt; max, то max = a[i]; 3) вывести max.</p>
+<p>Уровень 3 (код):</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int a[5];
+    cout &lt;&lt; &quot;Введите 5 чисел: &quot;;
+    for (int i = 0; i &lt; 5; i++)
+        cin &gt;&gt; a[i];
+    int max = a[0];
+    for (int i = 1; i &lt; 5; i++)
+        if (a[i] &gt; max)
+            max = a[i];
+    cout &lt;&lt; &quot;Наибольшее: &quot; &lt;&lt; max &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите 5 чисел: 4 9 2 7 5
+Наибольшее: 9</code></pre>
+<div class="q-ask">5. Приведите пример программы на C++, в которой описана структура Human с полями: имя, фамилия, возраст. Программа создаёт объект этой структуры, заполняет его поля значениями, введёнными пользователем, и выводит информацию о человеке на экран.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;string&gt;
+struct Human
+{
+    string firstName, lastName;
+    int age;
+};
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    Human h;
+    cout &lt;&lt; &quot;Имя, фамилия, возраст: &quot;;
+    cin &gt;&gt; h.firstName &gt;&gt; h.lastName &gt;&gt; h.age;
+    cout &lt;&lt; h.firstName &lt;&lt; &quot; &quot; &lt;&lt; h.lastName &lt;&lt; &quot;, &quot; &lt;&lt; h.age &lt;&lt; &quot; лет&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Имя, фамилия, возраст: Иван Петров 20
+Иван Петров, 20 лет</code></pre>
+</div>
+<div class="q-card" id="q8">
+  <div class="q-header"><span class="q-num">Билет 8</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «массив».</div>
+<p>Ответ. Массив это набор элементов одного типа, которые лежат в памяти подряд и имеют общее имя. К элементу обращаются по индексу, нумерация идёт с нуля: в массиве из 5 элементов индексы 0..4.</p>
+<div class="q-ask">2. Опишите синтаксис создания массива в C++.</div>
+<pre><code>тип имя[размер];                 // int a[10];
+int a[5] = {10, 20, 30, 40, 50};  // с значениями
+int b[] = {1, 2, 3};              // размер 3 найдёт компилятор
+int c[5] = {1, 2};                // 1 2 0 0 0
+a[2] = 99;                        // обращение по индексу</code></pre>
+<p>Размер задаётся константой. Границы C++ не проверяет: <code>a</code><code>[5]</code> в массиве из пяти элементов это ошибка.</p>
+<div class="q-ask">3. Охарактеризуйте принцип работы оператора sizeof().</div>
+<p>Ответ. <code>sizeof</code> возвращает размер в байтах типа или переменной.</p>
+<p>1) <code>sizeof(arr)</code> размер всего массива;</p>
+<p>2) <code>sizeof(arr[0])</code> размер одного элемента;</p>
+<p>3) <code>sizeof(arr) / sizeof(arr[0])</code> число элементов.</p>
+<p>Для <code>int arr[10]</code>: 40 байт всего, 4 байта на элемент, 10 элементов. В функции массив превращается в указатель, и <code>sizeof</code> вернёт размер указателя.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая создаёт массив из 10 целых чисел, заполняет его значениями, введёнными пользователем, выводит все элементы массива на экран, а затем с помощью оператора sizeof() определяет и выводит размер всего массива в байтах и размер одного элемента массива.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int arr[10];
+    cout &lt;&lt; &quot;Введите 10 чисел: &quot;;
+    for (int i = 0; i &lt; 10; i++)
+        cin &gt;&gt; arr[i];
+    cout &lt;&lt; &quot;Элементы: &quot;;
+    for (int i = 0; i &lt; 10; i++)
+        cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+    cout &lt;&lt; &quot;Весь массив (байт): &quot; &lt;&lt; sizeof(arr) &lt;&lt; endl;
+    cout &lt;&lt; &quot;Один элемент (байт): &quot; &lt;&lt; sizeof(arr[0]) &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите 10 чисел: 3 8 1 9 4 7 2 6 5 10
+Элементы: 3 8 1 9 4 7 2 6 5 10
+Весь массив (байт): 40
+Один элемент (байт): 4</code></pre>
+</div>
+<div class="q-card" id="q9">
+  <div class="q-header"><span class="q-num">Билет 9</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «функция».</div>
+<p>Ответ. Функция это именованный блок кода, который выполняет определённую задачу, может принимать параметры и возвращать результат. Написали один раз, вызываем много раз. Пример: <code>main()</code>, <code>sqrt()</code>.</p>
+<div class="q-ask">2. Опишите синтаксис создания функции в С++.</div>
+<pre><code>тип_результата имя(параметры)
+{
+    // тело
+    return значение;       // для void не нужен
+}
+int square(int x) { return x * x; }
+int r = square(5);          // вызов: r = 25</code></pre>
+<p><code>void</code> означает «ничего не возвращает».</p>
+<div class="q-ask">3. Сравните между собой объявление функции и определение прототипа функции в С++.</div>
+<p>1) Прототип (объявление): только заголовок и <code>;</code>, без тела: <code>int sum(int a, int b);</code>. Говорит компилятору, что такая функция есть, чтобы её можно было вызвать выше определения. Имена параметров можно не писать.</p>
+<p>2) Определение: заголовок и тело <code>{ ... }</code>, то есть сам код функции. Определение только одно, прототипов может быть несколько.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая содержит прототип функции int sum(int a, int b);, объявленный до main(), определение этой функции после main(), возвращающее сумму двух чисел, функцию void printResult(int result), которая выводит результат на экран, и в main() — вызов обеих функций с числами, введёнными пользователем.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int sum(int a, int b);            // прототип
+void printResult(int result)       // определение до main
+{
+    cout &lt;&lt; &quot;Сумма равна: &quot; &lt;&lt; result &lt;&lt; endl;
+}
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int x, y;
+    cout &lt;&lt; &quot;Введите два числа: &quot;;
+    cin &gt;&gt; x &gt;&gt; y;
+    printResult(sum(x, y));        // вызов обеих функций
+    return 0;
+}
+int sum(int a, int b)              // определение после main
+{
+    return a + b;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите два числа: 12 30
+Сумма равна: 42</code></pre>
+</div>
+<div class="q-card" id="q10">
+  <div class="q-header"><span class="q-num">Билет 10</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Назовите типы данных, которые используются для хранения символов и строк в C++.</div>
+<p>1) <code>char</code> один символ (<code>&#x27;A&#x27;</code>).</p>
+<p>2) <code>char[]</code> массив символов, C-строка. В конце хранится нулевой символ <code>&#x27;\0&#x27;</code>.</p>
+<p>3) <code>string</code> класс из библиотеки <code>&lt;string&gt;</code>, строка любой длины.</p>
+<div class="q-ask">2. Опишите типы данных char и string, их назначение и особенности.</div>
+<p>char хранит один символ в 1 байте (код ASCII), пишется в одинарных кавычках: <code>char c = &#x27;A&#x27;;</code>. Из символов можно составить C-строку <code>char w[6] = &quot;Hello&quot;;</code> (на один элемент больше из-за <code>&#x27;\0&#x27;</code>), но копировать и сравнивать её надо функциями <code>strcpy</code>, <code>strcmp</code>.</p>
+<p>string хранит текст любой длины в двойных кавычках: <code>string s = &quot;Привет&quot;;</code>. Размер подстраивается сам, есть <code>+</code> (склеить), <code>=</code>, <code>s.length()</code>, <code>s[0]</code>. Ввод строки с пробелами: <code>getline(cin, s)</code>.</p>
+<div class="q-ask">3. Охарактеризуйте сравнение строк в языке программирования C++.</div>
+<p>Ответ. Сравнение идёт посимвольно по кодам символов, с учётом регистра (<code>&quot;abc&quot;</code> и <code>&quot;ABC&quot;</code> не равны). Для <code>string</code> используют <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code> или <code>a.compare(b)</code> (0 значит равны). Для C-строк <code>==</code> сравнивает адреса, поэтому нужен <code>strcmp(s1, s2) == 0</code> из <code>&lt;cstring&gt;</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая запрашивает у пользователя две строки с помощью getline(), сравнивает их между собой и выводит на экран сообщение о том, равны строки или нет.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;string&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    string s1, s2;
+    cout &lt;&lt; &quot;Первая строка: &quot;;
+    getline(cin, s1);
+    cout &lt;&lt; &quot;Вторая строка: &quot;;
+    getline(cin, s2);
+    if (s1 == s2)
+        cout &lt;&lt; &quot;Строки равны&quot; &lt;&lt; endl;
+    else
+        cout &lt;&lt; &quot;Строки не равны&quot; &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Первая строка: Привет мир
+Вторая строка: Привет мир
+Строки равны</code></pre>
+</div>
+<div class="q-card" id="q11">
+  <div class="q-header"><span class="q-num">Билет 11</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «сортировка».</div>
+<p>Ответ. Сортировка это упорядочивание элементов набора (например, массива) по возрастанию или убыванию значений (ключа).</p>
+<div class="q-ask">2. Перечислите основные виды сортировок и охарактеризуйте их особенности.</div>
+<p>1) Простые (порядка n² операций, медленные, но короткие): пузырьком, выбором, вставками.</p>
+<p>2) Быстрые (порядка n·log n операций): слиянием, быстрая (Quick sort), пирамидальная (Heap sort); Шелла быстрее простых.</p>
+<div class="q-ask">3. Опишите принципы работы сортировки слиянием и пузырьковой сортировки.</div>
+<p>Пузырьком: соседние элементы сравниваются, и если стоят неверно, меняются местами. За проход самый большой «всплывает» в конец, проходов не больше n - 1. Два вложенных цикла: внешний (проходы), внутренний (сравнение соседей). Пример <code>5 2 4 1</code>: проход 1 даёт <code>2 4 1 5</code>, проход 2 даёт <code>2 1 4 5</code>, проход 3 даёт <code>1 2 4 5</code>.</p>
+<p>Слиянием: массив делят пополам, пока не останутся части из одного элемента, затем отсортированные части сливают, каждый раз беря меньший из двух первых элементов. Пример <code>8 3 5 1 9 2</code>: <code>[3 5 8]</code> и <code>[1 2 9]</code> сливаются в <code>[1 2 3 5 8 9]</code>. Нужна дополнительная память.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая сортирует массив.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    const int N = 8;
+    int a[N];
+    cout &lt;&lt; &quot;Введите &quot; &lt;&lt; N &lt;&lt; &quot; чисел: &quot;;
+    for (int i = 0; i &lt; N; i++)
+        cin &gt;&gt; a[i];
+    for (int pass = 0; pass &lt; N - 1; pass++)       // проходы
+        for (int j = 0; j &lt; N - 1 - pass; j++)     // соседние пары
+            if (a[j] &gt; a[j + 1])
+            {
+                int tmp = a[j];                    // обмен
+                a[j] = a[j + 1];
+                a[j + 1] = tmp;
+            }
+    cout &lt;&lt; &quot;Результат: &quot;;
+    for (int i = 0; i &lt; N; i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите 8 чисел: 64 25 12 22 11 90 5 33
+Результат: 5 11 12 22 25 33 64 90</code></pre>
+<p>Как запомнить: пузырёк это «большой всплывает», слияние это «разделили и слили».</p>
+</div>
+<div class="q-card" id="q12">
+  <div class="q-header"><span class="q-num">Билет 12</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «структура».</div>
+<p>Ответ. Структура это тип данных, который создаёт программист: он объединяет связанные значения (поля) разных типов в одну единицу. Например, карточка студента: имя, фамилия, возраст, средний балл.</p>
+<div class="q-ask">2. Опишите синтаксис определения структуры в С++.</div>
+<pre><code>struct Student
+{
+    string firstName, lastName;   // имя, фамилия
+    int age;                      // возраст
+    double average;               // средний балл
+};                                // точка с запятой обязательна</code></pre>
+<p>Имя структуры становится именем нового типа. Определение пишут до <code>main</code>; память оно не занимает.</p>
+<div class="q-ask">3. Охарактеризуйте принцип создания объекта структуры и его инициализацию.</div>
+<pre><code>Student s1;                                   // создание объекта
+Student s2 = {&quot;Мария&quot;, &quot;Иванова&quot;, 18, 8.7};   // список значений по порядку
+s1.age = 19;                                   // отдельное поле через точку
+cin &gt;&gt; s1.average;                             // ввод в поле
+Student s3 = s2;                               // копирование всех полей</code></pre>
+<p>Если поля не заполнить, числовые поля локального объекта будут содержать «мусор».</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой описана структура Student с полями: имя, фамилия, возраст и средний балл. Программа создаёт объект этой структуры, заполняет его поля значениями, введёнными пользователем, и выводит информацию о студенте на экран.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;string&gt;
+struct Student
+{
+    string firstName, lastName;
+    int age;
+    double average;
+};
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    Student st;
+    cout &lt;&lt; &quot;Имя, фамилия, возраст, средний балл: &quot;;
+    cin &gt;&gt; st.firstName &gt;&gt; st.lastName &gt;&gt; st.age &gt;&gt; st.average;
+    cout &lt;&lt; st.firstName &lt;&lt; &quot; &quot; &lt;&lt; st.lastName &lt;&lt; &quot;, &quot; &lt;&lt; st.age
+         &lt;&lt; &quot; лет, средний балл &quot; &lt;&lt; st.average &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Имя, фамилия, возраст, средний балл: Мария Иванова 18 8.7
+Мария Иванова, 18 лет, средний балл 8.7</code></pre>
+<p>Как запомнить: структура описывает тип (<code>struct Student {...};</code>), объект создаётся отдельно (<code>Student st;</code>), поле берётся через точку.</p>
+</div>
+<div class="q-card" id="q13">
+  <div class="q-header"><span class="q-num">Билет 13</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Назовите с помощью какого режима открытия файла можно открыть файл в режиме для дозаписи.</div>
+<p>Ответ. Режим `ios::app` (append) открывает файл для дозаписи: старое содержимое сохраняется, новые данные пишутся в конец файла. Если файла нет, он создаётся. Пример: <code>ofstream f(&quot;data.txt&quot;, ios::app);</code>. Обычное открытие <code>ofstream</code> стирает старое содержимое.</p>
+<div class="q-ask">2. Перечислите базовые типы для чтения и записи файлов.</div>
+<p>Ответ. Подключаются через <code>#include &lt;fstream&gt;</code>:</p>
+<p>1) <code>ifstream</code> поток для чтения из файла;</p>
+<p>2) <code>ofstream</code> поток для записи в файл;</p>
+<p>3) <code>fstream</code> поток для чтения и записи (направление задаёт режим).</p>
+<p>Работают как <code>cin</code> и <code>cout</code>: запись <code>&lt;&lt;</code>, чтение <code>&gt;&gt;</code> или <code>getline</code>.</p>
+<div class="q-ask">3. Охарактеризуйте работу с файлами в С++.</div>
+<p>1) Подключить <code>&lt;fstream&gt;</code>.</p>
+<p>2) Создать поток и открыть файл: <code>ofstream fout(&quot;a.txt&quot;);</code> или <code>fout.open(&quot;a.txt&quot;);</code>.</p>
+<p>3) Проверить открытие: <code>if (!fout.is_open()) ...</code>.</p>
+<p>4) Писать <code>fout &lt;&lt; x;</code> или читать <code>getline(fin, line);</code>.</p>
+<p>5) Закрыть файл: <code>fout.close();</code>.</p>
+<p>Режимы: <code>ios::in</code> чтение, <code>ios::out</code> запись, <code>ios::app</code> дозапись, <code>ios::trunc</code> очистить, <code>ios::binary</code> двоичный; комбинируются через <code>|</code>. Чтение до конца: <code>while (getline(fin, line))</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая сначала записывает несколько строк в текстовый файл, затем открывает этот же файл в режиме дозаписи и добавляет в него ещё несколько строк, после чего считывает всё содержимое файла и выводит его на экран.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    ofstream fout(&quot;data.txt&quot;);                  // запись (файл создаётся заново)
+    fout &lt;&lt; &quot;Первая строка&quot; &lt;&lt; endl &lt;&lt; &quot;Вторая строка&quot; &lt;&lt; endl;
+    fout.close();
+    ofstream fapp(&quot;data.txt&quot;, ios::app);        // дозапись в конец
+    fapp &lt;&lt; &quot;Третья строка (дозапись)&quot; &lt;&lt; endl;
+    fapp.close();
+    ifstream fin(&quot;data.txt&quot;);                   // чтение всего файла
+    string line;
+    while (getline(fin, line))
+        cout &lt;&lt; line &lt;&lt; endl;
+    fin.close();
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Первая строка
+Вторая строка
+Третья строка (дозапись)</code></pre>
+<p>Как запомнить: три потока: <code>i</code> читает, <code>o</code> пишет, <code>f</code> умеет оба. <code>app</code> значит «добавить в конец». Всегда: открыл, проверил, работал, закрыл.</p>
+</div>
+<div class="q-card" id="q14">
+  <div class="q-header"><span class="q-num">Билет 14</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «рекурсивная функция».</div>
+<p>Ответ. Рекурсивная функция это функция, которая в своём теле вызывает саму себя. Каждый вызов решает ту же задачу для меньших данных. Пример: <code>n! = n * (n - 1)!</code>.</p>
+<div class="q-ask">2. Опишите отличие простых функций от рекурсивных.</div>
+<p>1) Простая функция выполняется один раз и себя не вызывает. Повторения делают циклами.</p>
+<p>2) Рекурсивная функция вызывает саму себя, повторения идут через вызовы. Обязательно нужно условие выхода, иначе вызовы бесконечны, и стек переполняется. Каждый вызов занимает память в стеке.</p>
+<div class="q-ask">3. Охарактеризуйте принцип работы прямой и косвенной рекурсии.</div>
+<p>Прямая рекурсия: функция вызывает сама себя.</p>
+<pre><code>int fact(int n)
+{
+    if (n &lt;= 1) return 1;       // условие выхода
+    return n * fact(n - 1);     // вызов самой себя
+}</code></pre>
+<p>Косвенная рекурсия: функция A вызывает B, а B вызывает A (по кругу). Нужен прототип, так как одну из функций вызывают раньше её определения.</p>
+<pre><code>bool isOdd(int n);                                          // прототип
+bool isEven(int n) { return n == 0 ? true : isOdd(n - 1); }
+bool isOdd(int n)  { return n == 0 ? false : isEven(n - 1); }</code></pre>
+<div class="q-ask">4. Приведите пример программы на C++, в которой рекурсивная функция вычисляет факториал введённого пользователем числа.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+unsigned long long factorial(int n)
+{
+    if (n &lt;= 1)
+        return 1;                    // условие выхода
+    return n * factorial(n - 1);     // рекурсивный вызов
+}
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int n;
+    cout &lt;&lt; &quot;Введите n (0..20): &quot;;
+    cin &gt;&gt; n;
+    cout &lt;&lt; n &lt;&lt; &quot;! = &quot; &lt;&lt; factorial(n) &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите n (0..20): 5
+5! = 120</code></pre>
+<p>Вычисление: 5 * 4 * 3 * 2 * 1 = 120.</p>
+<p>Как запомнить: у рекурсии всегда две части: где остановиться и шаг к остановке (n уменьшается).</p>
+</div>
+<div class="q-card" id="q15">
+  <div class="q-header"><span class="q-num">Билет 15</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «класс».</div>
+<p>Ответ. Класс это пользовательский тип, который объединяет данные (поля) и функции для работы с ними (методы). Класс это чертёж, а созданные по нему экземпляры называются объектами.</p>
+<div class="q-ask">2. Опишите синтаксис и принцип создания класса в С++.</div>
+<pre><code>class Dog
+{
+private:                     // закрытое: доступно только внутри класса
+    string name;
+    int age;
+public:                      // открытое: доступно везде
+    Dog(string n, int a);    // конструктор
+    void bark();             // метод
+};                           // точка с запятой обязательна</code></pre>
+<p>Модификаторы: <code>private</code> (по умолчанию), <code>public</code>, <code>protected</code> (для наследников).</p>
+<div class="q-ask">3. Охарактеризуйте создание и инициализацию объекта класса в С++.</div>
+<p>Ответ. Объект создаётся как переменная: <code>Dog d(&quot;Шарик&quot;, 3);</code> или в динамической памяти: <code>Dog *p = new Dog(&quot;Бобик&quot;, 5);</code> (потом <code>delete p;</code>). Инициализирует поля конструктор: его имя совпадает с именем класса, типа результата нет, вызывается при создании объекта. К членам обращаются так: <code>d.bark()</code> или <code>p-&gt;bark()</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой описан класс Book с полями: название, автор и год издания. Программа создаёт объект этого класса, инициализирует его поля значениями, введёнными пользователем, и выводит информацию о книге на экран.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;string&gt;
+class Book
+{
+private:
+    string title, author;
+    int year;
+public:
+    Book(string t, string a, int y) : title(t), author(a), year(y) { }
+    void print()
+    {
+        cout &lt;&lt; title &lt;&lt; &quot;, &quot; &lt;&lt; author &lt;&lt; &quot;, &quot; &lt;&lt; year &lt;&lt; &quot; г.&quot; &lt;&lt; endl;
+    }
+};
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    string t, a;
+    int y;
+    cout &lt;&lt; &quot;Название: &quot;;  getline(cin, t);
+    cout &lt;&lt; &quot;Автор: &quot;;     getline(cin, a);
+    cout &lt;&lt; &quot;Год: &quot;;       cin &gt;&gt; y;
+    Book book(t, a, y);
+    book.print();
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Название: Война и мир
+Автор: Лев Толстой
+Год: 1869
+Война и мир, Лев Толстой, 1869 г.</code></pre>
+<p>Как запомнить: класс это чертёж, объект это изделие. Поля <code>private</code>, методы <code>public</code>, конструктор называется как класс.</p>
+</div>
+<div class="q-card" id="q16">
+  <div class="q-header"><span class="q-num">Билет 16</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «рекурсивная функция».</div>
+<p>Ответ. Рекурсивная функция это функция, которая вызывает сама себя, решая каждый раз такую же задачу, но для более простых данных.</p>
+<div class="q-ask">2. Опишите принцип работы рекурсивной функции и условие выхода из рекурсии.</div>
+<p>1) Базовый случай (условие выхода): ответ известен, новых вызовов нет. Для факториала: <code>n &lt;= 1</code>, результат 1.</p>
+<p>2) Рекурсивный шаг: вызов себя с изменёнными параметрами, которые приближают к базовому случаю: <code>n * fact(n - 1)</code>.</p>
+<p>Вызовы копятся в стеке, как тарелки в стопке, затем возвращаются в обратном порядке. Без условия выхода стек переполнится (stack overflow), программа упадёт.</p>
+<div class="q-ask">3. Приведите пример программы на C++, в которой вычисление факториала числа n реализовано двумя способами: с помощью рекурсивной функции и с помощью цикла.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+unsigned long long factRec(int n)         // рекурсия
+{
+    if (n &lt;= 1) return 1;
+    return n * factRec(n - 1);
+}
+unsigned long long factLoop(int n)        // цикл
+{
+    unsigned long long r = 1;
+    for (int i = 2; i &lt;= n; i++)
+        r *= i;
+    return r;
+}
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int n;
+    cout &lt;&lt; &quot;Введите n (0..20): &quot;;
+    cin &gt;&gt; n;
+    cout &lt;&lt; &quot;Рекурсия: &quot; &lt;&lt; factRec(n) &lt;&lt; endl;
+    cout &lt;&lt; &quot;Цикл:     &quot; &lt;&lt; factLoop(n) &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите n (0..20): 6
+Рекурсия: 720
+Цикл:     720</code></pre>
+<p>Оба способа дают 720. Цикл быстрее и не занимает стек, рекурсия короче.</p>
+<p>Как запомнить: рекурсия: «база + шаг». Цикл: «результат = 1, умножай в цикле».</p>
+</div>
+<div class="q-card" id="q17">
+  <div class="q-header"><span class="q-num">Билет 17</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «хеширование».</div>
+<p>Ответ. Хеширование это преобразование ключа в число фиксированного размера (хеш-код) с помощью хеш-функции. Хеш-код используют как номер ячейки, поэтому поиск в хеш-таблице почти мгновенный. Если разные ключи дают один хеш, это коллизия.</p>
+<div class="q-ask">2. Опишите принцип заполнения хеш-таблицы.</div>
+<p>1) Выбрать размер таблицы N (ячейки 0..N-1).</p>
+<p>2) Для ключа вычислить индекс <code>h(key)</code> и записать элемент в эту ячейку.</p>
+<p>3) Если ячейка занята (коллизия), применить один из способов:</p>
+<p>метод цепочек: в ячейке список элементов с одинаковым хешем;</p>
+<p>открытая адресация (линейное зондирование): идём к следующим ячейкам <code>(h + i) mod N</code>, пока не найдём свободную.</p>
+<div class="q-ask">3. Охарактеризуйте метод нахождения хеш-кодов через метод умножения.</div>
+<pre><code>h(k) = целая_часть( N * дробная_часть( k * A ) ),   A = 0.618033</code></pre>
+<p>Шаги: 1) умножить ключ на A; 2) взять дробную часть; 3) умножить на N и взять целую часть. Результат от 0 до N-1. Пример N = 13: ключ 25: 25·0,618033 = 15,4508, дробная часть 0,4508, 0,4508·13 = 5,86, хеш 5. Ключ 44: 27,1934, дробная 0,1934, ·13 = 2,51, хеш 2. Ключ 97: 59,9492, дробная 0,9492, ·13 = 12,34, хеш 12.</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой реализована хеш-таблица с использованием метода умножения для вычисления хеш-кода.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;cmath&gt;
+const int SIZE = 13;
+const double A = 0.6180339887;
+int table[SIZE];
+bool used[SIZE];
+int hashCode(int key)                       // метод умножения
+{
+    return (int)(SIZE * fmod(key * A, 1.0));
+}
+void insertKey(int key)                     // линейное зондирование
+{
+    int i = hashCode(key);
+    while (used[i])
+        i = (i + 1) % SIZE;
+    table[i] = key;
+    used[i] = true;
+}
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int keys[] = {25, 44, 97, 38, 51, 12};
+    for (int k : keys)
+        insertKey(k);
+    for (int i = 0; i &lt; SIZE; i++)
+    {
+        cout &lt;&lt; &quot;[&quot; &lt;&lt; i &lt;&lt; &quot;] &quot;;
+        if (used[i]) cout &lt;&lt; table[i];
+        cout &lt;&lt; endl;
+    }
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>[0]
+[1]
+[2] 44
+[3]
+[4]
+[5] 25
+[6] 38
+[7] 51
+[8] 12
+[9]
+[10]
+[11]
+[12] 97</code></pre>
+<p>Коллизии: ключ 51 имеет хеш 6 (занят ключом 38), поэтому попал в ячейку 7. Ключ 12 имеет хеш 5 (занят), затем заняты 6 и 7, поэтому он в ячейке 8.</p>
+<p>Как запомнить: хеш это «ключ, умножить на A, взять дробную часть, умножить на N, отбросить дробь». Занято? Иди в следующую ячейку.</p>
+</div>
+<div class="q-card" id="q18">
+  <div class="q-header"><span class="q-num">Билет 18</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «метод класса».</div>
+<p>Ответ. Метод класса это функция, объявленная внутри класса. Она описывает действия объекта и имеет доступ ко всем его полям, в том числе закрытым. Поля это «характеристики», методы это «поведение».</p>
+<div class="q-ask">2. Опишите принцип объявления и вызова метода класса.</div>
+<p>Объявление: внутри класса целиком, или в классе только заголовок, а определение снаружи через <code>::</code>:</p>
+<pre><code>class Rect { public: double a, b; double area(); };    // объявление в классе
+double Rect::area() { return a * b; }                    // определение вне класса</code></pre>
+<p>Вызов: для объекта через точку, через указатель через стрелку: <code>r.area();</code> <code>p-&gt;area();</code>.</p>
+<div class="q-ask">3. Охарактеризуйте виды методов класса (конструкторы, деструкторы, метод-аксессор) и особенности их использования.</div>
+<p>1) Конструктор: вызывается при создании объекта, инициализирует поля; имя как у класса, типа результата нет.</p>
+<p>2) Деструктор <code>~Student()</code>: вызывается при уничтожении объекта (<code>delete</code>, выход из области видимости), освобождает ресурсы. Параметров нет, в классе он один.</p>
+<p>3) Аксессор (геттер): возвращает значение закрытого поля, не давая менять его напрямую: <code>double getAverage() const { return avg; }</code>. Парный к нему мутатор (сеттер) изменяет поле: <code>void setAverage(double a)</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой реализован класс Student с полями (ФИО, номер группы, средний балл) и следующими методами: конструктор для инициализации полей, метод-аксессор для получения среднего балла.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;string&gt;
+class Student
+{
+private:
+    string fio, group;
+    double average;
+public:
+    Student(string f, string g, double a) : fio(f), group(g), average(a) { }
+    double getAverage() const { return average; }
+    void print() const { cout &lt;&lt; fio &lt;&lt; &quot;, группа &quot; &lt;&lt; group &lt;&lt; endl; }
+};
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    string fio, group;
+    double avg;
+    cout &lt;&lt; &quot;ФИО: &quot;;    getline(cin, fio);
+    cout &lt;&lt; &quot;Группа: &quot;; getline(cin, group);
+    cout &lt;&lt; &quot;Средний балл: &quot;; cin &gt;&gt; avg;
+    Student st(fio, group, avg);
+    st.print();
+    cout &lt;&lt; &quot;Средний балл: &quot; &lt;&lt; st.getAverage() &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>ФИО: Петров Пётр Петрович
+Группа: ПО-21
+Средний балл: 8.4
+Петров Пётр Петрович, группа ПО-21
+Средний балл: 8.4</code></pre>
+<p>Как запомнить: конструктор создаёт, деструктор убирает, геттер отдаёт значение, сеттер меняет. Снаружи класса метод вызывается через точку.</p>
+</div>
+<div class="q-card" id="q19">
+  <div class="q-header"><span class="q-num">Билет 19</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «стек».</div>
+<p>Ответ. Стек (stack) это структура данных, в которой элементы добавляются и удаляются только с одного конца, вершины. Принцип LIFO: последним пришёл, первым вышел. Пример: стопка тарелок.</p>
+<div class="q-ask">2. Опишите синтаксис объявления стека в C++ (с использованием std::stack).</div>
+<pre><code>#include &lt;stack&gt;
+stack&lt;int&gt; s;            // пустой стек целых чисел
+stack&lt;string&gt; names;     // стек строк</code></pre>
+<div class="q-ask">3. Охарактеризуйте механизмы работы со стеком (push, pop, top, empty, size).</div>
+<p><code>push(x)</code> положить на вершину; <code>pop()</code> удалить вершину (значение не возвращает);</p>
+<p><code>top()</code> посмотреть вершину; <code>empty()</code> пуст ли стек; <code>size()</code> число элементов.</p>
+<p>Индексов нет: доступна только вершина. Перед <code>top()</code> и <code>pop()</code> проверяют <code>empty()</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая демонстрирует работу со стеком: пользователь вводит несколько целых чисел, они помещаются в стек.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;stack&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    stack&lt;int&gt; s;
+    int n, x;
+    cout &lt;&lt; &quot;Сколько чисел, и сами числа: &quot;;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i++)
+    {
+        cin &gt;&gt; x;
+        s.push(x);
+    }
+    cout &lt;&lt; &quot;Размер: &quot; &lt;&lt; s.size() &lt;&lt; &quot;, вершина: &quot; &lt;&lt; s.top() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Извлекаем: &quot;;
+    while (!s.empty())
+    {
+        cout &lt;&lt; s.top() &lt;&lt; &quot; &quot;;
+        s.pop();
+    }
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Сколько чисел, и сами числа: 5
+10 20 30 40 50
+Размер: 5, вершина: 50
+Извлекаем: 50 40 30 20 10</code></pre>
+<p>Как запомнить: стек это стопка тарелок: берёшь сверху. LIFO: last in, first out.</p>
+</div>
+<div class="q-card" id="q20">
+  <div class="q-header"><span class="q-num">Билет 20</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «очередь».</div>
+<p>Ответ. Очередь (queue) это структура данных, в которой элементы добавляются в конец, а извлекаются из начала. Принцип FIFO: первым пришёл, первым вышел. Пример: очередь в магазине.</p>
+<div class="q-ask">2. Опишите синтаксис объявления очереди в C++ (с использованием std::queue).</div>
+<pre><code>#include &lt;queue&gt;
+queue&lt;int&gt; q;            // пустая очередь целых чисел
+queue&lt;string&gt; names;     // очередь строк</code></pre>
+<div class="q-ask">3. Охарактеризуйте механизмы работы с очередью (push, pop, front, back, empty, size).</div>
+<p><code>push(x)</code> добавить в конец; <code>pop()</code> удалить первый элемент;</p>
+<p><code>front()</code> первый элемент; <code>back()</code> последний элемент;</p>
+<p><code>empty()</code> пуста ли очередь; <code>size()</code> число элементов.</p>
+<p>Индексов нет, доступны только концы. Порядок извлечения совпадает с порядком добавления.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая демонстрирует работу с очередью: пользователь вводит несколько целых чисел, они помещаются в очередь.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;queue&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    queue&lt;int&gt; q;
+    int n, x;
+    cout &lt;&lt; &quot;Сколько чисел, и сами числа: &quot;;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i++)
+    {
+        cin &gt;&gt; x;
+        q.push(x);
+    }
+    cout &lt;&lt; &quot;Первый: &quot; &lt;&lt; q.front() &lt;&lt; &quot;, последний: &quot; &lt;&lt; q.back() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Извлекаем: &quot;;
+    while (!q.empty())
+    {
+        cout &lt;&lt; q.front() &lt;&lt; &quot; &quot;;
+        q.pop();
+    }
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Сколько чисел, и сами числа: 5
+10 20 30 40 50
+Первый: 10, последний: 50
+Извлекаем: 10 20 30 40 50</code></pre>
+<p>Как запомнить: очередь в кассу: кто первым встал, тот первым ушёл. FIFO: first in, first out.</p>
+</div>
+<div class="q-card" id="q21">
+  <div class="q-header"><span class="q-num">Билет 21</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «дек».</div>
+<p>Ответ. Дек (deque, «двусторонняя очередь») это структура данных, в которой элементы можно добавлять и удалять с обоих концов. Объединяет возможности стека и очереди.</p>
+<div class="q-ask">2. Опишите синтаксис объявления дека в C++ (с использованием std::deque).</div>
+<pre><code>#include &lt;deque&gt;
+deque&lt;int&gt; d;                 // пустой дек
+deque&lt;int&gt; d2 = {1, 2, 3};    // с начальными значениями</code></pre>
+<div class="q-ask">3. Охарактеризуйте механизмы работы с деком (push_back, push_front, pop_back, pop_front, front, back, empty, size).</div>
+<p><code>push_back(x)</code> и <code>push_front(x)</code> добавить в конец и в начало;</p>
+<p><code>pop_back()</code> и <code>pop_front()</code> удалить последний и первый;</p>
+<p><code>back()</code> и <code>front()</code> последний и первый; <code>empty()</code>, <code>size()</code>.</p>
+<p>В отличие от стека и очереди, у дека есть доступ по индексу: <code>d[i]</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая демонстрирует работу с деком: пользователь вводит несколько целых чисел, они помещаются в дек с обоих концов.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;deque&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    deque&lt;int&gt; d;
+    int n, x;
+    cout &lt;&lt; &quot;Сколько чисел, и сами числа: &quot;;
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++)
+    {
+        cin &gt;&gt; x;
+        if (i % 2 == 1) d.push_front(x);    // нечётные: в начало
+        else            d.push_back(x);     // чётные: в конец
+    }
+    cout &lt;&lt; &quot;Дек: &quot;;
+    for (int i = 0; i &lt; (int)d.size(); i++)
+        cout &lt;&lt; d[i] &lt;&lt; &quot; &quot;;
+    d.pop_front();
+    d.pop_back();
+    cout &lt;&lt; endl &lt;&lt; &quot;После pop_front и pop_back: &quot;;
+    for (int i = 0; i &lt; (int)d.size(); i++)
+        cout &lt;&lt; d[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Сколько чисел, и сами числа: 6
+1 2 3 4 5 6
+Дек: 5 3 1 2 4 6
+После pop_front и pop_back: 3 1 2 4</code></pre>
+<p>Как запомнить: дек это «два входа»: <code>front</code> это начало, <code>back</code> это конец, у каждого свои <code>push</code> и <code>pop</code>.</p>
+</div>
+<div class="q-card" id="q22">
+  <div class="q-header"><span class="q-num">Билет 22</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «связный список».</div>
+<p>Ответ. Связный список это динамическая структура данных из узлов; каждый узел хранит данные и указатель на следующий узел. Узлы лежат в памяти где угодно, размер списка не фиксирован.</p>
+<div class="q-ask">2. Опишите принцип работы односвязного списка.</div>
+<pre><code>struct Node { int data; Node *next; };     // узел: данные + ссылка</code></pre>
+<p>Список задаётся указателем на первый узел (голову, head), у последнего узла <code>next == nullptr</code>. Схема: <code>head -&gt; [10|•] -&gt; [20|•] -&gt; [30|nullptr]</code>. Добавление: создать узел (<code>new Node</code>) и присоединить: в начало (новый узел указывает на head и сам становится головой) или в конец. Обход: идём от головы по <code>next</code> до <code>nullptr</code>. Удаление: предыдущий узел перенаправляем на следующий за удаляемым, удаляемый освобождаем <code>delete</code>. Доступа по индексу нет.</p>
+<div class="q-ask">3. Охарактеризуйте различия между односвязным и двусвязным списками.</div>
+<p>1) Односвязный: узел хранит <code>data</code> и <code>next</code>; обход только вперёд; меньше памяти; для удаления нужен предыдущий узел.</p>
+<p>2) Двусвязный: узел хранит <code>data</code>, <code>next</code> и <code>prev</code>; обход в обе стороны; больше памяти и сложнее код; предыдущий узел известен сразу.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая демонстрирует работу с односвязным списком: пользователь вводит несколько целых чисел, они добавляются в список.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+struct Node { int data; Node *next; };
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    Node *head = nullptr, *tail = nullptr;
+    int n, x;
+    cout &lt;&lt; &quot;Сколько чисел, и сами числа: &quot;;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i++)
+    {
+        cin &gt;&gt; x;
+        Node *node = new Node{x, nullptr};      // новый узел
+        if (head == nullptr) head = tail = node;
+        else { tail-&gt;next = node; tail = node; }
+    }
+    cout &lt;&lt; &quot;Список: &quot;;
+    for (Node *p = head; p != nullptr; p = p-&gt;next)
+        cout &lt;&lt; p-&gt;data &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+    while (head != nullptr)                     // освобождаем память
+    {
+        Node *tmp = head;
+        head = head-&gt;next;
+        delete tmp;
+    }
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Сколько чисел, и сами числа: 5
+7 3 9 1 8
+Список: 7 3 9 1 8</code></pre>
+<p>Как запомнить: список это поезд: вагон (узел) знает только про следующий вагон (<code>next</code>). У двусвязного ещё и про предыдущий (<code>prev</code>).</p>
+</div>
+<div class="q-card" id="q23">
+  <div class="q-header"><span class="q-num">Билет 23</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «сортировка пузырьком» (bubble sort).</div>
+<p>Ответ. Сортировка пузырьком (bubble sort) это алгоритм, в котором соседние элементы попарно сравниваются и при неверном порядке меняются местами. За каждый проход самый большой элемент «всплывает» в конец, как пузырёк в воде.</p>
+<div class="q-ask">2. Опишите принцип работы сортировки пузырьком, в том числе с использованием вложенных циклов и обмена соседних элементов.</div>
+<p>Ответ. Сравниваем 1-й и 2-й элементы, потом 2-й и 3-й и так до конца; если левый больше правого, меняем их через временную переменную. После прохода самый большой стоит на последнем месте. Повторяем для оставшихся элементов, всего не больше n - 1 проходов. Два вложенных цикла:</p>
+<pre><code>for (int i = 0; i &lt; n - 1; i++)             // номер прохода
+    for (int j = 0; j &lt; n - 1 - i; j++)     // сравнение соседей
+        if (a[j] &gt; a[j + 1])
+        {
+            int tmp = a[j];                 // обмен соседних элементов
+            a[j] = a[j + 1];
+            a[j + 1] = tmp;
+        }</code></pre>
+<p>Рекурсивный вариант: функция делает один проход, затем вызывает себя для массива на 1 элемент короче. Выход: <code>n == 1</code>.</p>
+<div class="q-ask">3. Приведите пример программы на C++, в которой реализована сортировка массива методом пузырька с помощью рекурсивной функции.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+void bubbleSort(int a[], int n)
+{
+    if (n &lt;= 1) return;                 // условие выхода
+    for (int j = 0; j &lt; n - 1; j++)     // один проход
+        if (a[j] &gt; a[j + 1])
+        {
+            int tmp = a[j];
+            a[j] = a[j + 1];
+            a[j + 1] = tmp;
+        }
+    bubbleSort(a, n - 1);               // остальные n - 1 элементов
+}
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int a[7];
+    cout &lt;&lt; &quot;Введите 7 чисел: &quot;;
+    for (int i = 0; i &lt; 7; i++)
+        cin &gt;&gt; a[i];
+    bubbleSort(a, 7);
+    cout &lt;&lt; &quot;Результат: &quot;;
+    for (int i = 0; i &lt; 7; i++)
+        cout &lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите 7 чисел: 9 4 7 1 8 2 5
+Результат: 1 2 4 5 7 8 9</code></pre>
+<p>Как запомнить: проход это «самый большой в конец», а рекурсия это «повтори для массива короче на один».</p>
+</div>
+<div class="q-card" id="q24">
+  <div class="q-header"><span class="q-num">Билет 24</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «ссылка».</div>
+<p>Ответ. Ссылка (reference) это псевдоним (второе имя) уже существующей переменной. Изменение через ссылку меняет саму переменную.</p>
+<div class="q-ask">2. Опишите синтаксис объявления ссылки в C++.</div>
+<pre><code>тип &amp;имя = переменная;       // int x = 10;  int &amp;r = x;</code></pre>
+<p>Ссылку нужно инициализировать сразу при создании, потом её нельзя «переназначить» на другую переменную, тип должен совпадать. Часто применяют в параметрах функций: <code>void swapValues(int &amp;a, int &amp;b)</code>.</p>
+<div class="q-ask">3. Охарактеризуйте различия между ссылкой и указателем.</div>
+<div class="tbl"><table><tr><th></th><th>Ссылка</th><th>Указатель</th></tr><tr><td>Запись</td><td>int &amp;r = x;</td><td>int *p = &amp;x;</td></tr><tr><td>Инициализация</td><td>обязательна сразу</td><td>можно позже</td></tr><tr><td>Пустое значение</td><td>не бывает</td><td>nullptr</td></tr><tr><td>Смена объекта</td><td>нельзя</td><td>можно</td></tr><tr><td>Доступ к значению</td><td>r</td><td>*p</td></tr></table></div>
+<div class="q-ask">4. Приведите пример программы на C++, в которой объявлена переменная, создана ссылка на неё, показано изменение значения переменной через ссылку.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int number = 10;
+    int &amp;ref = number;               // ссылка на number
+    ref = 25;                        // меняем через ссылку
+    cout &lt;&lt; &quot;number = &quot; &lt;&lt; number &lt;&lt; &quot;, ref = &quot; &lt;&lt; ref &lt;&lt; endl;
+    number = 40;                     // меняем через переменную
+    cout &lt;&lt; &quot;number = &quot; &lt;&lt; number &lt;&lt; &quot;, ref = &quot; &lt;&lt; ref &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>number = 25, ref = 25
+number = 40, ref = 40</code></pre>
+<p>Как запомнить: ссылка это второе имя (как прозвище), указатель это адрес. Ссылка привязана навсегда, указатель можно переставить.</p>
+</div>
+<div class="q-card" id="q25">
+  <div class="q-header"><span class="q-num">Билет 25</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «файл».</div>
+<p>Ответ. Файл это именованная область на диске, в которой хранятся данные; они остаются после завершения программы. Файлы бывают текстовые (читаемые символы) и двоичные.</p>
+<div class="q-ask">2. Опишите синтаксис открытия файла в C++ с помощью ifstream и ofstream.</div>
+<pre><code>#include &lt;fstream&gt;
+ofstream fout(&quot;data.txt&quot;);            // открыть для записи
+ifstream fin(&quot;data.txt&quot;);             // открыть для чтения
+fout.open(&quot;data2.txt&quot;);               // или через open()
+if (!fin.is_open()) cout &lt;&lt; &quot;Ошибка&quot;;  // проверка открытия
+fout.close();                         // закрытие</code></pre>
+<p>Второй параметр задаёт режим: <code>ios::app</code> (дозапись), <code>ios::in</code>, <code>ios::out</code>, <code>ios::binary</code>.</p>
+<div class="q-ask">3. Охарактеризуйте доступ к данным файла при чтении и записи.</div>
+<p>Ответ. Доступ последовательный: данные читаются и пишутся подряд, от начала к концу, у файла есть текущая позиция, которая сдвигается после каждой операции. Запись: <code>fout &lt;&lt; &quot;текст&quot; &lt;&lt; endl;</code>. Чтение: <code>fin &gt;&gt; x;</code> (слово или число) или <code>getline(fin, line);</code> (строка целиком). Чтение до конца: <code>while (getline(fin, line))</code>. Позицию можно изменить: <code>seekg()</code>, <code>seekp()</code>, <code>tellg()</code>, <code>tellp()</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая запрашивает у пользователя несколько строк, записывает их в текстовый файл, затем открывает этот файл для чтения, считывает все строки и выводит их на экран.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int n;
+    cout &lt;&lt; &quot;Сколько строк записать? &quot;;
+    cin &gt;&gt; n;
+    cin.ignore();                          // убираем конец строки после числа
+    ofstream fout(&quot;lines.txt&quot;);
+    for (int i = 1; i &lt;= n; i++)
+    {
+        string s;
+        cout &lt;&lt; &quot;Строка &quot; &lt;&lt; i &lt;&lt; &quot;: &quot;;
+        getline(cin, s);
+        fout &lt;&lt; s &lt;&lt; endl;
+    }
+    fout.close();
+    ifstream fin(&quot;lines.txt&quot;);
+    string line;
+    cout &lt;&lt; &quot;Содержимое файла:&quot; &lt;&lt; endl;
+    while (getline(fin, line))
+        cout &lt;&lt; line &lt;&lt; endl;
+    fin.close();
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Сколько строк записать? 2
+Строка 1: Первая строка
+Строка 2: Вторая строка
+Содержимое файла:
+Первая строка
+Вторая строка</code></pre>
+<p>Как запомнить: <code>ofstream</code> это «out» (в файл), <code>ifstream</code> это «in» (из файла). Читаем в цикле <code>while (getline(...))</code>.</p>
+</div>
+<div class="q-card" id="q26">
+  <div class="q-header"><span class="q-num">Билет 26</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «тип данных».</div>
+<p>Ответ. Тип данных определяет, какие значения может хранить переменная, сколько памяти она занимает и какие операции с ней допустимы.</p>
+<div class="q-ask">2. Опишите основные типы данных в C++ (int, float, double, char, bool, string).</div>
+<div class="tbl"><table><tr><th>Тип</th><th>Что хранит</th><th>Размер</th><th>Пример</th></tr><tr><td>int</td><td>целые числа</td><td>4 байта</td><td>int a = 100;</td></tr><tr><td>float</td><td>вещественные (около 7 знаков)</td><td>4 байта</td><td>float f = 3.14f;</td></tr><tr><td>double</td><td>вещественные (около 15 знаков)</td><td>8 байт</td><td>double d = 3.14;</td></tr><tr><td>char</td><td>один символ</td><td>1 байт</td><td>char c = &#x27;Z&#x27;;</td></tr><tr><td>bool</td><td>true или false</td><td>1 байт</td><td>bool ok = true;</td></tr><tr><td>string</td><td>строка текста</td><td>зависит от длины</td><td>string s = &quot;Hi&quot;;</td></tr></table></div>
+<div class="q-ask">3. Охарактеризуйте преобразование типов в C++ (неявное и явное).</div>
+<p>Неявное преобразование делает компилятор сам: <code>int</code> приводится к <code>double</code>; при присваивании вещественного числа целой переменной дробная часть отбрасывается (<code>int i = 7.9;</code> даст 7). Явное задаёт программист: <code>static_cast&lt;double&gt;(a)</code> или <code>(double)a</code>. Ловушка: <code>7 / 2</code> даёт 3 (целочисленное деление), а <code>(double)7 / 2</code> даёт 3.5. Приводить надо до деления.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая запрашивает у пользователя два целых числа, выполняет их деление и выводит результат сначала как целое число (целочисленное деление), затем — как вещественное число с помощью явного преобразования типов.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int a, b;
+    cout &lt;&lt; &quot;Введите два целых числа: &quot;;
+    cin &gt;&gt; a &gt;&gt; b;
+    if (b == 0)
+    {
+        cout &lt;&lt; &quot;На ноль делить нельзя&quot; &lt;&lt; endl;
+        return 0;
+    }
+    cout &lt;&lt; &quot;Целочисленное деление: &quot; &lt;&lt; a / b &lt;&lt; endl;
+    cout &lt;&lt; &quot;Вещественное деление: &quot; &lt;&lt; static_cast&lt;double&gt;(a) / b &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите два целых числа: 7 2
+Целочисленное деление: 3
+Вещественное деление: 3.5</code></pre>
+<p>Как запомнить: целое делим на целое, получаем целое. Нужна дробь, значит превращай одно число в <code>double</code> заранее.</p>
+</div>
+<div class="q-card" id="q27">
+  <div class="q-header"><span class="q-num">Билет 27</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «линейный алгоритм».</div>
+<p>Ответ. Линейный алгоритм это алгоритм, в котором все действия выполняются по порядку, один раз каждое, без проверок условий и повторов. Схема: ввод, вычисление, вывод. Пример: площадь прямоугольника по сторонам.</p>
+<div class="q-ask">2. Перечислите способы комментирования кода в С++.</div>
+<p>1) Однострочный <code>//</code> действует до конца строки: <code>int a = 5;  // комментарий</code>.</p>
+<p>2) Многострочный <code>/* ... */</code> может занимать несколько строк. Вкладывать друг в друга нельзя.</p>
+<p>Комментарии компилятор игнорирует, они нужны человеку для пояснений.</p>
+<div class="q-ask">3. Охарактеризуйте структуру программы в С++.</div>
+<p>1) Директивы препроцессора: <code>#include &lt;iostream&gt;</code> подключает библиотеки (без <code>;</code>).</p>
+<p>2) Пространство имён: <code>using namespace std;</code>.</p>
+<p>3) Глобальные объявления: константы, структуры, классы, функции.</p>
+<p>4) Функция `main()`: с неё начинается выполнение, тело в <code>{ }</code>, операторы заканчиваются <code>;</code>.</p>
+<p>5) `return 0;` в конце <code>main</code> означает успешное завершение.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая запрашивает у пользователя длину и ширину прямоугольника, вычисляет его площадь и периметр, а также демонстрирует использование однострочных и многострочных комментариев для пояснения кода.</div>
+<pre><code>/* Площадь и периметр прямоугольника (линейный алгоритм) */
+#include &lt;iostream&gt;     // подключение библиотеки
+#include &lt;clocale&gt;
+using namespace std;
+int main()              // главная функция
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    double length, width;                    // длина и ширина
+    cout &lt;&lt; &quot;Введите длину и ширину: &quot;;
+    cin &gt;&gt; length &gt;&gt; width;                  // ввод
+    double area = length * width;            // площадь
+    double perimeter = 2 * (length + width); // периметр
+    cout &lt;&lt; &quot;Площадь: &quot; &lt;&lt; area &lt;&lt; endl;     // вывод
+    cout &lt;&lt; &quot;Периметр: &quot; &lt;&lt; perimeter &lt;&lt; endl;
+    return 0;                                // успешное завершение
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите длину и ширину: 8 5
+Площадь: 40
+Периметр: 26</code></pre>
+<p>Как запомнить: структура: подключить, <code>main</code>, ввод, вычисление, вывод, <code>return 0</code>. Комментарии: <code>//</code> одна строка, <code>/* */</code> много.</p>
+</div>
+<div class="q-card" id="q28">
+  <div class="q-header"><span class="q-num">Билет 28</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «двумерный массив».</div>
+<p>Ответ. Двумерный массив это таблица из строк и столбцов: массив, элементы которого сами являются массивами. Элемент определяется двумя индексами: номер строки и номер столбца. Все элементы одного типа.</p>
+<div class="q-ask">2. Опишите способ создания двумерного массива.</div>
+<pre><code>тип имя[строки][столбцы];
+int matrix[3][4];            // 3 строки, 4 столбца, всего 12 элементов
+matrix[1][2] = 7;            // строка 1, столбец 2 (счёт с нуля)</code></pre>
+<p>Для перебора нужны два вложенных цикла: внешний по строкам, внутренний по столбцам.</p>
+<div class="q-ask">3. Охарактеризуйте инициализацию двумерного массива.</div>
+<pre><code>int a[3][4] = {
+    {1, 2, 3, 4},            // строка 0
+    {5, 6, 7, 8},            // строка 1
+    {9, 10, 11, 12}          // строка 2
+};
+int b[2][3] = {1, 2, 3, 4, 5, 6};     // без вложенных скобок
+int c[2][3] = {{1}, {4, 5}};          // остальные равны 0</code></pre>
+<p>Число столбцов указывать обязательно, число строк можно опустить.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая создаёт двумерный массив размером 3×4, заполняет его значениями, введёнными пользователем, выводит массив на экран в виде таблицы, а затем находит и выводит сумму всех элементов массива.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    const int ROWS = 3, COLS = 4;
+    int a[ROWS][COLS], sum = 0;
+    cout &lt;&lt; &quot;Введите 12 чисел: &quot;;
+    for (int i = 0; i &lt; ROWS; i++)
+        for (int j = 0; j &lt; COLS; j++)
+            cin &gt;&gt; a[i][j];
+    for (int i = 0; i &lt; ROWS; i++)
+    {
+        for (int j = 0; j &lt; COLS; j++)
+        {
+            cout &lt;&lt; a[i][j] &lt;&lt; &quot;\t&quot;;
+            sum += a[i][j];
+        }
+        cout &lt;&lt; endl;
+    }
+    cout &lt;&lt; &quot;Сумма: &quot; &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите 12 чисел: 1 2 3 4 5 6 7 8 9 10 11 12
+1	2	3	4
+5	6	7	8
+9	10	11	12
+Сумма: 78</code></pre>
+<p>Как запомнить: сначала строка, потом столбец: <code>a[строка][столбец]</code>. Два индекса значит два вложенных цикла.</p>
+</div>
+<div class="q-card" id="q29">
+  <div class="q-header"><span class="q-num">Билет 29</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «виртуальный метод».</div>
+<p>Ответ. Виртуальный метод это метод базового класса, помеченный <code>virtual</code>, который можно переопределить в производных классах. При вызове через указатель или ссылку на базовый класс выполняется версия реального типа объекта, а не типа указателя.</p>
+<div class="q-ask">2. Опишите синтаксис объявления виртуального метода в C++.</div>
+<pre><code>class Base
+{
+public:
+    virtual void show() { cout &lt;&lt; &quot;Base&quot;; }     // виртуальный метод
+    virtual ~Base() { }                          // виртуальный деструктор
+};
+class Derived : public Base
+{
+public:
+    void show() override { cout &lt;&lt; &quot;Derived&quot;; } // переопределение
+};</code></pre>
+<div class="q-ask">3. Охарактеризуйте основное назначение виртуальных методов и механизм позднего связывания.</div>
+<p>Ответ. Назначение: полиморфизм, один вызов <code>p-&gt;show()</code> работает по-разному для разных объектов иерархии. Обычный метод выбирается на этапе компиляции по типу указателя (раннее связывание). Виртуальный выбирается во время работы программы по реальному объекту (позднее связывание) через таблицу виртуальных методов (vtable).</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой объявлен базовый класс с виртуальным методом и производный класс, переопределяющий этот метод, а в main() через указатель на базовый класс вызывается метод производного класса, демонстрируя полиморфизм.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+class Animal
+{
+public:
+    virtual void speak() { cout &lt;&lt; &quot;Животное издаёт звук&quot; &lt;&lt; endl; }
+    void info() { cout &lt;&lt; &quot;Это Animal&quot; &lt;&lt; endl; }      // не виртуальный
+    virtual ~Animal() { }
+};
+class Dog : public Animal
+{
+public:
+    void speak() override { cout &lt;&lt; &quot;Собака: гав-гав&quot; &lt;&lt; endl; }
+    void info() { cout &lt;&lt; &quot;Это Dog&quot; &lt;&lt; endl; }
+};
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    Animal *p = new Dog();     // указатель базового класса, объект Dog
+    p-&gt;speak();                // вызовется Dog::speak
+    p-&gt;info();                 // вызовется Animal::info
+    delete p;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Собака: гав-гав
+Это Animal</code></pre>
+<p>Как запомнить: <code>virtual</code> значит «смотри на объект, а не на тип указателя». Без <code>virtual</code> выбор делает компилятор по типу указателя.</p>
+</div>
+<div class="q-card" id="q30">
+  <div class="q-header"><span class="q-num">Билет 30</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «динамический массив».</div>
+<p>Ответ. Динамический массив это массив, память под который выделяется во время работы программы (в «куче»), поэтому размер можно узнать после запуска, например, ввести с клавиатуры. Создаётся <code>new[]</code>, освобождается <code>delete[]</code>.</p>
+<div class="q-ask">2. Опишите синтаксис объявления динамического массива в C++ (с использованием new и delete).</div>
+<pre><code>тип *имя = new тип[размер];     // создание
+delete[] имя;                   // освобождение
+int *arr = new int[n];          // массив из n целых
+arr[0] = 10;                    // работа как с обычным массивом
+delete[] arr;
+arr = nullptr;</code></pre>
+<div class="q-ask">3. Охарактеризуйте принцип работы динамического массива и работы с ним.</div>
+<p>1) Узнаём размер n (например, вводим).</p>
+<p>2) <code>new[]</code> выделяет непрерывный блок, указатель хранит адрес его начала.</p>
+<p>3) Элементы берём по индексу <code>arr[i]</code> (то же, что <code>*(arr + i)</code>), индексы от 0 до n - 1.</p>
+<p>4) В конце обязательно <code>delete[]</code>, иначе будет утечка памяти.</p>
+<p>Размер после создания менять нельзя. Для массива пишут <code>delete[]</code> (с квадратными скобками), а не <code>delete</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая запрашивает у пользователя размер массива, создаёт динамический массив этого размера, заполняет его значениями, введёнными пользователем, выводит все элементы на экран, а затем освобождает выделенную память с помощью delete[].</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int n;
+    cout &lt;&lt; &quot;Размер массива: &quot;;
+    cin &gt;&gt; n;
+    int *arr = new int[n];              // выделяем память
+    cout &lt;&lt; &quot;Введите &quot; &lt;&lt; n &lt;&lt; &quot; чисел: &quot;;
+    for (int i = 0; i &lt; n; i++)
+        cin &gt;&gt; arr[i];
+    cout &lt;&lt; &quot;Элементы: &quot;;
+    for (int i = 0; i &lt; n; i++)
+        cout &lt;&lt; arr[i] &lt;&lt; &quot; &quot;;
+    cout &lt;&lt; endl;
+    delete[] arr;                       // освобождаем память
+    arr = nullptr;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Размер массива: 5
+Введите 5 чисел: 4 8 15 16 23
+Элементы: 4 8 15 16 23</code></pre>
+<p>Как запомнить: <code>new[]</code> взял, <code>delete[]</code> вернул. Взял и не вернул значит утечка памяти.</p>
+</div>
+<div class="q-card" id="q31">
+  <div class="q-header"><span class="q-num">Билет 31</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «чисто виртуальный метод».</div>
+<p>Ответ. Чисто виртуальный метод это виртуальный метод без реализации в базовом классе, наследники обязаны реализовать его сами. Класс с таким методом называется абстрактным.</p>
+<div class="q-ask">2. Опишите синтаксис объявления чисто виртуального метода в C++.</div>
+<pre><code>class Shape
+{
+public:
+    virtual double area() = 0;     // чисто виртуальный метод
+    virtual ~Shape() { }
+};</code></pre>
+<p>Запись <code>= 0</code> не присваивание, а признак «тела нет».</p>
+<div class="q-ask">3. Охарактеризуйте назначение чисто виртуальных методов и понятие абстрактного класса.</div>
+<p>Ответ. Нужен, когда метод нельзя реализовать в базе (площадь «просто фигуры»), но нужен общий интерфейс. Абстрактный класс:</p>
+<p>1) объект такого класса создать нельзя (<code>Shape s;</code> это ошибка);</p>
+<p>2) можно создавать указатели и ссылки на него (полиморфизм);</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой объявлен абстрактный базовый класс с чисто виртуальным методом и два производных класса, реализующих этот метод по-своему, а в main() через указатель на базовый класс вызываются методы производных классов.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+class Shape
+{
+public:
+    virtual double area() = 0;
+    virtual ~Shape() { }
+};
+class Circle : public Shape
+{
+    double r;
+public:
+    Circle(double x) : r(x) { }
+    double area() override { return 3.14159 * r * r; }
+};
+class Rectangle : public Shape
+{
+    double a, b;
+public:
+    Rectangle(double x, double y) : a(x), b(y) { }
+    double area() override { return a * b; }
+};
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    Shape *s1 = new Circle(3);
+    Shape *s2 = new Rectangle(4, 5);
+    cout &lt;&lt; &quot;Круг: &quot; &lt;&lt; s1-&gt;area() &lt;&lt; endl;
+    cout &lt;&lt; &quot;Прямоугольник: &quot; &lt;&lt; s2-&gt;area() &lt;&lt; endl;
+    delete s1;
+    delete s2;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Круг: 28.2743
+Прямоугольник: 20</code></pre>
+<p>Как запомнить: <code>= 0</code> значит «реализуй сам», объект абстрактного класса создать нельзя.</p>
+</div>
+<div class="q-card" id="q32">
+  <div class="q-header"><span class="q-num">Билет 32</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «перегрузка операторов».</div>
+<p>Ответ. Перегрузка операторов это возможность задать для своих классов поведение стандартных операций (<code>+</code>, <code>-</code>, <code>==</code>, <code>&lt;&lt;</code>), чтобы писать <code>a + b</code> вместо <code>a.add(b)</code>.</p>
+<div class="q-ask">2. Опишите синтаксис перегрузки оператора в C++ с помощью ключевого слова operator.</div>
+<pre><code>тип_результата operator символ(параметры) { ... }
+Complex operator+(const Complex &amp;other) const;    // оператор + в классе</code></pre>
+<p>Если оператор метод класса, левый операнд это сам объект (<code>this</code>), правый приходит параметром. Поэтому у бинарного оператора внутри класса один параметр.</p>
+<div class="q-ask">3. Охарактеризуйте, какие операторы можно перегружать и как перегруженный оператор вызывается для объектов класса.</div>
+<p>Ответ. Перегружать можно большинство операторов: арифметические, сравнения, <code>=</code>, <code>[]</code>, <code>()</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code>. Нельзя: <code>::</code>, <code>.</code>, <code>.*</code>, <code>?:</code>, <code>sizeof</code>. Нельзя создавать новые операторы, менять приоритет и число операндов, перегружать операторы для встроенных типов. Вызов: <code>c = a + b;</code> компилятор читает как <code>c = a.operator+(b);</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой описан класс Complex для работы с комплексными числами, перегружен оператор + для сложения двух комплексных чисел.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+class Complex
+{
+    double re, im;
+public:
+    Complex(double r = 0, double i = 0) : re(r), im(i) { }
+    Complex operator+(const Complex &amp;o) const     // перегрузка +
+    {
+        return Complex(re + o.re, im + o.im);
+    }
+    void print() const
+    {
+        cout &lt;&lt; re &lt;&lt; (im &gt;= 0 ? &quot; + &quot; : &quot; - &quot;) &lt;&lt; (im &gt;= 0 ? im : -im) &lt;&lt; &quot;i&quot; &lt;&lt; endl;
+    }
+};
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    double r1, i1, r2, i2;
+    cout &lt;&lt; &quot;Первое число (re im): &quot;;
+    cin &gt;&gt; r1 &gt;&gt; i1;
+    cout &lt;&lt; &quot;Второе число (re im): &quot;;
+    cin &gt;&gt; r2 &gt;&gt; i2;
+    Complex c = Complex(r1, i1) + Complex(r2, i2);   // вызов operator+
+    cout &lt;&lt; &quot;Сумма: &quot;;
+    c.print();
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Первое число (re im): 3 4
+Второе число (re im): 1 -2
+Сумма: 4 + 2i</code></pre>
+<p>Проверка: (3 + 4i) + (1 - 2i) = 4 + 2i.</p>
+<p>Как запомнить: <code>a + b</code> это «вызов <code>operator+</code>». Нельзя перегружать: <code>::</code>, <code>.</code>, <code>.*</code>, <code>?:</code>, <code>sizeof</code>.</p>
+</div>
+<div class="q-card" id="q33">
+  <div class="q-header"><span class="q-num">Билет 33</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «одномерный массив».</div>
+<p>Ответ. Одномерный массив это набор элементов одного типа, расположенных подряд и пронумерованных одним индексом. Это «ряд» ячеек.</p>
+<div class="q-ask">2. Опишите синтаксис создания и инициализации одномерного массива в C++.</div>
+<pre><code>тип имя[размер];
+int a[5];                          // 5 элементов
+int b[5] = {10, 20, 30, 40, 50};   // с значениями
+int c[] = {1, 2, 3};               // размер 3
+a[2] = 7;                          // индексы с нуля: 0..4</code></pre>
+<div class="q-ask">3. Охарактеризуйте различия между одномерным и двумерным массивами, а также принцип доступа к элементам двумерного массива.</div>
+<p>1) Одномерный: ряд элементов, один индекс <code>a[i]</code>, перебор одним циклом.</p>
+<p>2) Двумерный: таблица, два индекса <code>m[i][j]</code>, перебор двумя вложенными циклами.</p>
+<p>В двумерном массиве первый индекс выбирает строку, второй столбец в ней: <code>m[1][2]</code> это строка 1, столбец 2. В памяти он лежит одним куском, строка за строкой: позиция <code>i * (число столбцов) + j</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой создаётся одномерный массив из 5 целых чисел и двумерный массив размером 3×3, заполняются значениями, введёнными пользователем, выводятся на экран, а затем вычисляется сумма элементов каждого массива.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int a[5], m[3][3], s1 = 0, s2 = 0;
+    cout &lt;&lt; &quot;5 чисел для одномерного массива: &quot;;
+    for (int i = 0; i &lt; 5; i++)
+    {
+        cin &gt;&gt; a[i];
+        s1 += a[i];
+    }
+    cout &lt;&lt; &quot;9 чисел для двумерного массива: &quot;;
+    for (int i = 0; i &lt; 3; i++)
+        for (int j = 0; j &lt; 3; j++)
+        {
+            cin &gt;&gt; m[i][j];
+            s2 += m[i][j];
+        }
+    for (int i = 0; i &lt; 3; i++)
+    {
+        for (int j = 0; j &lt; 3; j++)
+            cout &lt;&lt; m[i][j] &lt;&lt; &quot; &quot;;
+        cout &lt;&lt; endl;
+    }
+    cout &lt;&lt; &quot;Суммы: &quot; &lt;&lt; s1 &lt;&lt; &quot; и &quot; &lt;&lt; s2 &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>5 чисел для одномерного массива: 2 4 6 8 10
+9 чисел для двумерного массива: 1 2 3 4 5 6 7 8 9
+1 2 3
+4 5 6
+7 8 9
+Суммы: 30 и 45</code></pre>
+<p>Как запомнить: один индекс это ряд, два индекса это таблица (строка, потом столбец).</p>
+</div>
+<div class="q-card" id="q34">
+  <div class="q-header"><span class="q-num">Билет 34</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «формальные параметры функции».</div>
+<p>Формальные параметры это параметры, перечисленные в заголовке функции при её определении (с типом и именем). Это локальные переменные функции. В <code>int sum(int a, int b)</code> формальные параметры <code>a</code> и <code>b</code>.</p>
+<div class="q-ask">2. Опишите понятие «фактические параметры (аргументы) функции».</div>
+<p>Фактические параметры (аргументы) это значения, переменные или выражения, которые передаются в функцию при вызове и подставляются вместо формальных. В <code>sum(x, y)</code> это <code>x</code> и <code>y</code>; в <code>sum(3, 4 + 5)</code> это 3 и выражение <code>4 + 5</code>.</p>
+<div class="q-ask">3. Охарактеризуйте соответствие между формальными и фактическими параметрами при вызове функции в C++.</div>
+<p>1) Количество аргументов равно количеству параметров.</p>
+<p>2) Порядок: первый аргумент в первый параметр и т.д. Соответствие идёт по позиции, а не по именам.</p>
+<p>3) Типы совпадают или совместимы (возможно неявное преобразование <code>int</code> в <code>double</code>).</p>
+<p>По умолчанию передача по значению: в функцию идёт копия, оригинал не меняется. Параметр-ссылка (<code>int &amp;x</code>) или указатель позволяют функции изменить саму переменную.</p>
+<div class="q-ask">4. Приведите пример программы на C++, в которой объявлена функция с двумя формальными параметрами, например int sum(int a, int b), а в main() эта функция вызывается с фактическими аргументами, введёнными пользователем, и результат выводится на экран.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+int sum(int a, int b)         // a и b формальные параметры
+{
+    return a + b;
+}
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    int x, y;
+    cout &lt;&lt; &quot;Введите два числа: &quot;;
+    cin &gt;&gt; x &gt;&gt; y;
+    int result = sum(x, y);     // x и y фактические параметры
+    cout &lt;&lt; x &lt;&lt; &quot; + &quot; &lt;&lt; y &lt;&lt; &quot; = &quot; &lt;&lt; result &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Введите два числа: 17 25
+17 + 25 = 42</code></pre>
+<p>Как запомнить: формальные это в заголовке (определение), фактические это в вызове. Сначала формальные, потом фактические.</p>
+</div>
+<div class="q-card" id="q35">
+  <div class="q-header"><span class="q-num">Билет 35</span><a href="#top" class="top-link">▲ Сетка</a></div>
+<div class="q-ask">1. Дайте определение понятия «строка».</div>
+<p>Ответ. Строка это последовательность символов для хранения текста. В C++ строка хранится как массив <code>char</code> (C-строка) или как объект типа <code>string</code>.</p>
+<div class="q-ask">2. Опишите способы создания и инициализации строк в C++ (символьный массив и тип string).</div>
+<pre><code>char s1[20] = &quot;Hello&quot;;           // C-строка, в конце символ &#x27;\0&#x27;
+char s2[] = &quot;World&quot;;             // размер 6 найдёт компилятор
+string a = &quot;Привет&quot;;             // тип string (нужен &lt;string&gt;)
+string b(&quot;Мир&quot;);
+string c(5, &#x27;*&#x27;);                // &quot;*****&quot;
+string d;                        // пустая</code></pre>
+<p>В C-строке нужно на один элемент больше (под <code>&#x27;\0&#x27;</code>).</p>
+<div class="q-ask">3. Охарактеризуйте основные операции над строками: конкатенацию, сравнение, определение длины.</div>
+<p>1) Конкатенация: <code>s = s1 + &quot; &quot; + s2;</code>, <code>s += &quot;!&quot;;</code>, <code>s.append(&quot;x&quot;);</code></p>
+<p>2) Сравнение: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>compare()</code>, по кодам символов, с учётом регистра.</p>
+<p>3) Длина: <code>s.length()</code> или <code>s.size()</code>; для C-строки <code>strlen(s)</code>.</p>
+<p>Для C-строк используют <code>strcat</code> и <code>strcmp</code>, так как <code>+</code> и <code>==</code> не работают. Символ по индексу: <code>s[0]</code>.</p>
+<div class="q-ask">4. Приведите пример программы на C++, которая запрашивает у пользователя имя и фамилию, объединяет их в одну строку, выводит полное имя на экран, определяет длину полученной строки.</div>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;clocale&gt;
+using namespace std;
+#include &lt;string&gt;
+int main()
+{
+    setlocale(LC_ALL, &quot;Russian&quot;);
+    string firstName, lastName;
+    cout &lt;&lt; &quot;Имя и фамилия: &quot;;
+    cin &gt;&gt; firstName &gt;&gt; lastName;
+    string fullName = firstName + &quot; &quot; + lastName;     // конкатенация
+    cout &lt;&lt; &quot;Полное имя: &quot; &lt;&lt; fullName &lt;&lt; endl;
+    cout &lt;&lt; &quot;Длина строки: &quot; &lt;&lt; fullName.length() &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<p>Результат:</p>
+<pre><code>Имя и фамилия: Anna Ivanova
+Полное имя: Anna Ivanova
+Длина строки: 12</code></pre>
+<p>Длина 12: 4 буквы, пробел и 7 букв. Для примера взяты латинские буквы, так как длина кириллицы зависит от кодировки консоли.</p>
+<p>Как запомнить: <code>string</code> умеет всё сам: <code>+</code> склеивает, <code>==</code> сравнивает, <code>.length()</code> считает. C-строка требует функций (<code>strcat</code>, <code>strcmp</code>, <code>strlen</code>).</p>
+</div>
+</div>
+
+<script>
+  const root = document.documentElement;
+  let fs = parseInt(localStorage.getItem('fs') || '14');
+  root.style.setProperty('--font-size', fs + 'px');
+  function changeFont(d) { fs = Math.min(22, Math.max(10, fs + d)); localStorage.setItem('fs', fs);
+    root.style.setProperty('--font-size', fs + 'px'); }
+  function filterQuestions() {
+    const q = document.getElementById('search').value.trim().toLowerCase();
+    document.querySelectorAll('.q-card').forEach(c => {
+      c.classList.toggle('hidden', q && !c.textContent.toLowerCase().includes(q)); });
+    document.querySelectorAll('.grid, h2, .intro').forEach(g => g.classList.toggle('hidden', !!q));
+  }
+</script>
+
+</body>
+</html>
